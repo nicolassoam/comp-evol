@@ -14,8 +14,8 @@ problem_dict = {
 }
 
 ## Taxa de mutação de 1% e taxa de crossover de 60%
-ga_model = GA.BaseGA(epoch=5, pop_size=10, pc=0.60, pm=0.01)
-best_position, best_fitness_value = ga_model.solve(problem_dict)
+ga_model = GA.BaseGA(epoch=50000, pop_size=10, pc=0.60, pm=0.01)
+best_position, best_fitness_value = ga_model.solve(problem_dict,mode="thread")
 
 print(best_position)
 print(best_fitness_value)

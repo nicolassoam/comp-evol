@@ -1,4 +1,4 @@
-from cec2017.functions import f30
+from cec2017.functions import f1 as func
 import numpy as np
 import mealpy.evolutionary_based.GA as ga
 import mealpy.evolutionary_based.DE as de
@@ -9,9 +9,9 @@ executions = 100
 
 def fit(solution):
     x = np.tile(solution, (executions, dim))
-    val = f30(x);
+    val = func(x);
     # val = np.sum(solution**2);
-    return val.min()
+    return val
 
 term_dict = {
     'max_fe': 10000 * dim,
