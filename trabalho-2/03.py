@@ -1,17 +1,18 @@
-from cec2017.functions import f1 as func
+from cec2017.functions import f3 as func
 import numpy as np
 import mealpy.evolutionary_based.GA as ga
 import mealpy.evolutionary_based.DE as de
 
 dim = 10
-executions = 100
+executions = 1000
 
 
 def fit(solution):
-    x = np.tile(solution, (executions, dim))
+    x = np.random.uniform(-100, 100, size=(executions, dim))
     val = func(x);
+    
     # val = np.sum(solution**2);
-    return val
+    return val.min()
 
 term_dict = {
     'max_fe': 10000 * dim,
@@ -27,6 +28,9 @@ problem = {
     "obj_weights":np.ones(executions),
 }
 
-ga1 = ga.MultiGA(51,100,0.85,0.125)
+ga1 = ga.EliteMultiGA(51,1000,0.85,0.125,crossover='multi_points')
 # ga1 = de.SADE(51,100)
+
 print(ga1.solve(problem, 'thread', termination = term_dict))
+print(ga1.problem.name)
+ga1.history.save_global_objectives_chart()
