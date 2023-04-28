@@ -1,0 +1,132 @@
+2023/04/28 03:46:58 PM, INFO, mealpy.evolutionary_based.DE.SHADE: Solving single objective optimization problem.
+2023/04/28 03:46:58 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: The parallel mode: thread is selected. But n_workers is not set. The default n_workers = 4 is used.
+2023/04/28 03:46:59 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 1, Current best: 300.0105822277987, Global best: 300.0105822277987, Runtime: 0.50765 seconds
+2023/04/28 03:46:59 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 2, Current best: 300.0105822277987, Global best: 300.0105822277987, Runtime: 0.53745 seconds
+2023/04/28 03:47:00 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 3, Current best: 300.0001898135351, Global best: 300.0001898135351, Runtime: 0.52952 seconds
+2023/04/28 03:47:00 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 4, Current best: 300.0001898135351, Global best: 300.0001898135351, Runtime: 0.52021 seconds
+2023/04/28 03:47:01 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 5, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.50812 seconds
+2023/04/28 03:47:01 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 6, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.52497 seconds
+2023/04/28 03:47:02 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 7, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.50041 seconds
+2023/04/28 03:47:02 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 8, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.50111 seconds
+2023/04/28 03:47:03 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 9, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.53299 seconds
+2023/04/28 03:47:03 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 10, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.49188 seconds
+2023/04/28 03:47:04 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 11, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.49570 seconds
+2023/04/28 03:47:04 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 12, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.48996 seconds
+2023/04/28 03:47:05 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 13, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.51970 seconds
+2023/04/28 03:47:06 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 14, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.49539 seconds
+2023/04/28 03:47:06 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 15, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.48971 seconds
+2023/04/28 03:47:06 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 16, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.49091 seconds
+2023/04/28 03:47:07 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 17, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.52762 seconds
+2023/04/28 03:47:08 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 18, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.49035 seconds
+2023/04/28 03:47:08 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 19, Current best: 300.00004062746956, Global best: 300.00004062746956, Runtime: 0.49676 seconds
+2023/04/28 03:47:08 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: Stopping criterion with maximum number of function evaluations (FE) occurred. End program!
+2023/04/28 03:47:08 PM, INFO, mealpy.evolutionary_based.DE.SHADE: Solving single objective optimization problem.
+2023/04/28 03:47:08 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: The parallel mode: thread is selected. But n_workers is not set. The default n_workers = 4 is used.
+2023/04/28 03:47:09 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 1, Current best: 300.01057982660063, Global best: 300.01057982660063, Runtime: 0.51951 seconds
+2023/04/28 03:47:09 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 2, Current best: 300.01057982660063, Global best: 300.01057982660063, Runtime: 0.49674 seconds
+2023/04/28 03:47:10 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 3, Current best: 300.01057982660063, Global best: 300.01057982660063, Runtime: 0.50226 seconds
+2023/04/28 03:47:10 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 4, Current best: 300.01057982660063, Global best: 300.01057982660063, Runtime: 0.54622 seconds
+2023/04/28 03:47:11 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 5, Current best: 300.0033625309349, Global best: 300.0033625309349, Runtime: 0.51472 seconds
+2023/04/28 03:47:11 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 6, Current best: 300.0033625309349, Global best: 300.0033625309349, Runtime: 0.50636 seconds
+2023/04/28 03:47:12 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 7, Current best: 300.0033625309349, Global best: 300.0033625309349, Runtime: 0.51265 seconds
+2023/04/28 03:47:13 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 8, Current best: 300.0033625309349, Global best: 300.0033625309349, Runtime: 0.53211 seconds
+2023/04/28 03:47:13 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 9, Current best: 300.0019247481607, Global best: 300.0019247481607, Runtime: 0.51265 seconds
+2023/04/28 03:47:14 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 10, Current best: 300.0019247481607, Global best: 300.0019247481607, Runtime: 0.49518 seconds
+2023/04/28 03:47:14 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 11, Current best: 300.0019247481607, Global best: 300.0019247481607, Runtime: 0.52921 seconds
+2023/04/28 03:47:15 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 12, Current best: 300.0019247481607, Global best: 300.0019247481607, Runtime: 0.49119 seconds
+2023/04/28 03:47:15 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 13, Current best: 300.0019247481607, Global best: 300.0019247481607, Runtime: 0.49558 seconds
+2023/04/28 03:47:16 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 14, Current best: 300.001535550765, Global best: 300.001535550765, Runtime: 0.49206 seconds
+2023/04/28 03:47:16 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 15, Current best: 300.001535550765, Global best: 300.001535550765, Runtime: 0.52168 seconds
+2023/04/28 03:47:17 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 16, Current best: 300.001535550765, Global best: 300.001535550765, Runtime: 0.50119 seconds
+2023/04/28 03:47:17 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 17, Current best: 300.001535550765, Global best: 300.001535550765, Runtime: 0.50301 seconds
+2023/04/28 03:47:18 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 18, Current best: 300.001535550765, Global best: 300.001535550765, Runtime: 0.50282 seconds
+2023/04/28 03:47:18 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 19, Current best: 300.001535550765, Global best: 300.001535550765, Runtime: 0.51835 seconds
+2023/04/28 03:47:18 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: Stopping criterion with maximum number of function evaluations (FE) occurred. End program!
+2023/04/28 03:47:18 PM, INFO, mealpy.evolutionary_based.DE.SHADE: Solving single objective optimization problem.
+2023/04/28 03:47:18 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: The parallel mode: thread is selected. But n_workers is not set. The default n_workers = 4 is used.
+2023/04/28 03:47:19 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 1, Current best: 300.0100704701248, Global best: 300.0100704701248, Runtime: 0.49544 seconds
+2023/04/28 03:47:19 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 2, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.48832 seconds
+2023/04/28 03:47:20 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 3, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.52420 seconds
+2023/04/28 03:47:21 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 4, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.50675 seconds
+2023/04/28 03:47:21 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 5, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.50068 seconds
+2023/04/28 03:47:22 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 6, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.52521 seconds
+2023/04/28 03:47:22 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 7, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.49602 seconds
+2023/04/28 03:47:23 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 8, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.50076 seconds
+2023/04/28 03:47:23 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 9, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.50238 seconds
+2023/04/28 03:47:24 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 10, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.53025 seconds
+2023/04/28 03:47:24 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 11, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.49603 seconds
+2023/04/28 03:47:25 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 12, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.49769 seconds
+2023/04/28 03:47:25 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 13, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.49813 seconds
+2023/04/28 03:47:26 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 14, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.48976 seconds
+2023/04/28 03:47:26 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 15, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.48975 seconds
+2023/04/28 03:47:27 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 16, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.49510 seconds
+2023/04/28 03:47:27 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 17, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.51590 seconds
+2023/04/28 03:47:28 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 18, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.48813 seconds
+2023/04/28 03:47:28 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 19, Current best: 300.00272226609115, Global best: 300.00272226609115, Runtime: 0.49902 seconds
+2023/04/28 03:47:28 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: Stopping criterion with maximum number of function evaluations (FE) occurred. End program!
+2023/04/28 03:48:35 PM, INFO, mealpy.evolutionary_based.DE.SHADE: Solving single objective optimization problem.
+2023/04/28 03:48:35 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: The parallel mode: thread is selected. But n_workers is not set. The default n_workers = 4 is used.
+2023/04/28 03:48:36 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 1, Current best: 300.0083943084002, Global best: 300.0083943084002, Runtime: 0.47869 seconds
+2023/04/28 03:48:36 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 2, Current best: 300.0083943084002, Global best: 300.0083943084002, Runtime: 0.51038 seconds
+2023/04/28 03:48:37 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 3, Current best: 300.0083943084002, Global best: 300.0083943084002, Runtime: 0.48632 seconds
+2023/04/28 03:48:37 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 4, Current best: 300.0083943084002, Global best: 300.0083943084002, Runtime: 0.49374 seconds
+2023/04/28 03:48:38 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 5, Current best: 300.0083943084002, Global best: 300.0083943084002, Runtime: 0.49373 seconds
+2023/04/28 03:48:38 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 6, Current best: 300.00079298204355, Global best: 300.00079298204355, Runtime: 0.51258 seconds
+2023/04/28 03:48:39 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 7, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.49395 seconds
+2023/04/28 03:48:39 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 8, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.49684 seconds
+2023/04/28 03:48:40 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 9, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.54415 seconds
+2023/04/28 03:48:40 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 10, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.50122 seconds
+2023/04/28 03:48:41 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 11, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.49713 seconds
+2023/04/28 03:48:41 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 12, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.50278 seconds
+2023/04/28 03:48:42 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 13, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.52504 seconds
+2023/04/28 03:48:42 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 14, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.49841 seconds
+2023/04/28 03:48:43 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 15, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.49765 seconds
+2023/04/28 03:48:43 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 16, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.50407 seconds
+2023/04/28 03:48:44 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 17, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.52921 seconds
+2023/04/28 03:48:44 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 18, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.48886 seconds
+2023/04/28 03:48:45 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 19, Current best: 300.0003228919358, Global best: 300.0003228919358, Runtime: 0.48903 seconds
+2023/04/28 03:48:45 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: Stopping criterion with maximum number of function evaluations (FE) occurred. End program!
+2023/04/28 03:48:45 PM, INFO, mealpy.evolutionary_based.DE.SHADE: Solving single objective optimization problem.
+2023/04/28 03:48:45 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: The parallel mode: thread is selected. But n_workers is not set. The default n_workers = 4 is used.
+2023/04/28 03:48:46 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 1, Current best: 300.01099918938723, Global best: 300.01099918938723, Runtime: 0.50689 seconds
+2023/04/28 03:48:46 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 2, Current best: 300.0038210867257, Global best: 300.0038210867257, Runtime: 0.47681 seconds
+2023/04/28 03:48:47 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 3, Current best: 300.0038210867257, Global best: 300.0038210867257, Runtime: 0.50352 seconds
+2023/04/28 03:48:47 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 4, Current best: 300.0038210867257, Global best: 300.0038210867257, Runtime: 0.51548 seconds
+2023/04/28 03:48:48 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 5, Current best: 300.0038210867257, Global best: 300.0038210867257, Runtime: 0.48809 seconds
+2023/04/28 03:48:48 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 6, Current best: 300.0038210867257, Global best: 300.0038210867257, Runtime: 0.49417 seconds
+2023/04/28 03:48:49 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 7, Current best: 300.0038210867257, Global best: 300.0038210867257, Runtime: 0.49029 seconds
+2023/04/28 03:48:49 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 8, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.52529 seconds
+2023/04/28 03:48:50 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 9, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.50032 seconds
+2023/04/28 03:48:50 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 10, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.50115 seconds
+2023/04/28 03:48:51 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 11, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.53169 seconds
+2023/04/28 03:48:51 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 12, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.50834 seconds
+2023/04/28 03:48:52 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 13, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.49894 seconds
+2023/04/28 03:48:52 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 14, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.50378 seconds
+2023/04/28 03:48:53 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 15, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.52664 seconds
+2023/04/28 03:48:53 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 16, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.49821 seconds
+2023/04/28 03:48:54 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 17, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.50409 seconds
+2023/04/28 03:48:54 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 18, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.49604 seconds
+2023/04/28 03:48:55 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 19, Current best: 300.00096193300806, Global best: 300.00096193300806, Runtime: 0.52113 seconds
+2023/04/28 03:48:55 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: Stopping criterion with maximum number of function evaluations (FE) occurred. End program!
+2023/04/28 03:48:55 PM, INFO, mealpy.evolutionary_based.DE.SHADE: Solving single objective optimization problem.
+2023/04/28 03:48:55 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: The parallel mode: thread is selected. But n_workers is not set. The default n_workers = 4 is used.
+2023/04/28 03:48:56 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 1, Current best: 300.00982156796334, Global best: 300.00982156796334, Runtime: 0.49014 seconds
+2023/04/28 03:48:56 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 2, Current best: 300.00982156796334, Global best: 300.00982156796334, Runtime: 0.48154 seconds
+2023/04/28 03:48:57 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 3, Current best: 300.0058350781524, Global best: 300.0058350781524, Runtime: 0.51831 seconds
+2023/04/28 03:48:57 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 4, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.49208 seconds
+2023/04/28 03:48:58 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 5, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.49350 seconds
+2023/04/28 03:48:58 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 6, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.51440 seconds
+2023/04/28 03:48:59 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 7, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.48919 seconds
+2023/04/28 03:48:59 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 8, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.49503 seconds
+2023/04/28 03:49:00 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 9, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.49698 seconds
+2023/04/28 03:49:00 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 10, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.53483 seconds
+2023/04/28 03:49:01 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 11, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.50117 seconds
+2023/04/28 03:49:01 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 12, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.50085 seconds
+2023/04/28 03:49:02 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 13, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.50448 seconds
+2023/04/28 03:49:02 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 14, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.52329 seconds
+2023/04/28 03:49:03 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 15, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.49913 seconds
+2023/04/28 03:49:03 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 16, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.50083 seconds
+2023/04/28 03:49:04 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 17, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.52899 seconds
+2023/04/28 03:49:04 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 18, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.49612 seconds
+2023/04/28 03:49:05 PM, INFO, mealpy.evolutionary_based.DE.SHADE: >Problem: P, Epoch: 19, Current best: 300.0021141706793, Global best: 300.0021141706793, Runtime: 0.49734 seconds
+2023/04/28 03:49:05 PM, WARNING, mealpy.evolutionary_based.DE.SHADE: Stopping criterion with maximum number of function evaluations (FE) occurred. End program!
