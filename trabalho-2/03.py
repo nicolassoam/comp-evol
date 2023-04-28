@@ -9,25 +9,26 @@ dim = 10
 executions = 1000
 files = []
 
-
-for i in range(0,3):
-    
-    def fit(solution):
+def fit(solution):
         x = np.random.uniform(-100, 100, size=(executions, dim))
         val = func(x);
         
         # val = np.sum(solution**2);
         return val.min()
-    
-    # ga1 = ga.EliteMultiGA(51,1000,0.85,0.01)
-    ga1 = de.SHADE(1000,1000)
-    # ga1 = alo.BaseALO(1000,1000)
-    using_alg = ga1.name
+
 
     
-    term_dict = {
-        'max_fe': 10000 * dim,
-    }
+term_dict = {
+    'max_fe': 10000 * dim,
+}
+
+# ga1 = ga.EliteMultiGA(51,1000,0.85,0.01)
+ga1 = de.SHADE(1000,1000)
+# ga1 = alo.BaseALO(1000,1000)
+using_alg = ga1.name
+
+
+for i in range(0,3):
 
     problem = {
         "fit_func": fit,
