@@ -3,6 +3,12 @@ import numpy as np
 import mealpy.evolutionary_based.GA as ga
 import mealpy.evolutionary_based.DE as de
 import mealpy.swarm_based.ALO as alo
+import os 
+
+
+path = 'results'
+if not os.path.exists(path):
+    os.makedirs(path)
 
 alg = 'f3'
 dim = 10
@@ -23,7 +29,7 @@ term_dict = {
 }
 
 # ga1 = ga.EliteMultiGA(1000,1000,0.85,0.01)
-ga1 = de.SHADE(1000,1000)
+ga1 = de.SHADE(1000,100)
 # ga1 = alo.BaseALO(1000,1000)
 using_alg = ga1.name
 
