@@ -28,7 +28,7 @@ ga1 = de.SHADE(1000,1000)
 using_alg = ga1.name
 
 
-for i in range(0,3):
+for i in range(0,4):
 
     problem = {
         "fit_func": fit,
@@ -51,7 +51,9 @@ for i in range(0,3):
     # file.close()
     
 with open(f'results/result_{using_alg}_{dim}_{alg}.txt','w') as compiled:
+    i = 0
     for sol in results:
-        compiled.write(f'{sol}\n')
+        compiled.write(f'Execução {i}: {sol}\n')
+        i += 1
 
     
