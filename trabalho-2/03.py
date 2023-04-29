@@ -1,4 +1,4 @@
-from cec2017.functions import f3 as func
+from cec2017.functions import f4 as func
 import numpy as np
 import mealpy.evolutionary_based.GA as ga
 import mealpy.evolutionary_based.DE as de
@@ -10,8 +10,9 @@ path = 'results'
 if not os.path.exists(path):
     os.makedirs(path)
 
-alg = 'f3'
-dim = 10
+alg = func.__name__
+print(alg)
+dim = 2
 executions = 1000
 results = []
 
@@ -21,7 +22,6 @@ def fit(solution):
         
         # val = np.sum(solution**2);
         return val.min()
-
 
     
 term_dict = {
