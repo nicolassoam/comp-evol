@@ -10,6 +10,7 @@ path = 'results'
 if not os.path.exists(path):
     os.makedirs(path)
 
+n_times = 52
 alg = func.__name__
 print(alg)
 dim = 2
@@ -19,8 +20,7 @@ results = []
 def fit(solution):
         x = np.random.uniform(-100, 100, size=(executions, dim))
         val = func(x);
-        
-        # val = np.sum(solution**2);
+
         return val.min()
 
     
@@ -34,7 +34,7 @@ ga1 = de.SHADE(1000,100)
 using_alg = ga1.name
 
 
-for i in range(0,4):
+for i in range(0,n_times):
 
     problem = {
         "fit_func": fit,
@@ -42,19 +42,14 @@ for i in range(0,4):
         "ub": [100, ] * dim,
         "minmax":"min",
         "n_dims":dim,
-        # 'obj_weights':np.ones(3)
         "obj_weights":np.ones(executions),
     }
     
-    
     # file = open(f"results/result_{i}_{using_alg}_{dim}_{alg}.txt", "w")
     
-    # file.write(f"Execucao {i}: \n")
     best_fit, best_sol = ga1.solve(problem, 'thread', termination = term_dict)
     
     results.append(best_sol)
-    
-    # file.close()
     
 with open(f'results/result_{using_alg}_{dim}_{alg}.txt','w') as compiled:
     i = 0
