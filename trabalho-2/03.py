@@ -12,9 +12,10 @@ if not os.path.exists(path):
 
 n_times = 52
 alg = func.__name__
-print(alg)
-dim = 2
+
+dim = int(input("Dimensão: "))
 executions = 1000
+
 results = []
 
 def fit(solution):
@@ -29,7 +30,7 @@ term_dict = {
 }
 
 # ga1 = ga.EliteMultiGA(1000,1000,0.85,0.01)
-ga1 = de.SHADE(1000,100)
+ga1 = de.SHADE(1000,1000)
 # ga1 = alo.BaseALO(1000,1000)
 using_alg = ga1.name
 
