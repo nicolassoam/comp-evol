@@ -1,4 +1,4 @@
-from cec2017.functions import f6 as func
+from cec2017.functions import f9 as func
 import numpy as np
 import mealpy.evolutionary_based.GA as ga
 import mealpy.evolutionary_based.DE as de
