@@ -13,7 +13,7 @@
 
 #include <pagmo/problems/schwefel.hpp>
 
-#include "graph/graph.cpp"
+#include "tsp/tsp.cpp"
 
 #include "config.h"
 

@@ -1,21 +1,20 @@
-#include <boost/graph/adjacency_matrix.hpp>
 #include <fstream>
 #include <iostream>
-#include <boost/graph/graphviz.hpp>
+#include <vector>
+
 
 using namespace std;
-using namespace boost;
 
-typedef property<edge_weight_t, int> EdgeWeightProperty;
-typedef adjacency_matrix<undirectedS,no_property,EdgeWeightProperty> Graph;
-typedef Graph::edge_descriptor Edge;
-typedef Graph::vertex_descriptor Vertex;
+struct TSP {
+    int n;
+    vector<vector<int>> dist;
+};
 
 void readGraphATSP(string file_location){
     ifstream infile;
     try{
         infile.open(file_location,ios::in);
-        cout << "arquivo aberto" << endl;
+        cout << "Arquivo aberto" << endl;
     } catch(string e) {
         cout << "Erro ao abrir o arquivo" << endl;
     };
@@ -51,8 +50,10 @@ void readGraphATSP(string file_location){
 
     i = 0;
     int j = 0;
-
-    Graph g(n);
+    TSP tsp;
+    tsp.n = n;
+    vector<vector<int>> dist(n,vector<int>(n));
+    tsp.dist = dist;
 
     while(!infile.eof()){
         while(infile >> line){
@@ -62,16 +63,12 @@ void readGraphATSP(string file_location){
                 if(aux == "100000000" || aux == "9999" || aux == "EOF" || aux == "\n")
                     continue;
                 else
-                    add_edge(i, j,stoi(aux),g);
+                    tsp.dist[i][j] = stoi(aux);
 
                 j++;
                 
              };
           
-            dynamic_properties dp;
-            dp.property("node_id", get(vertex_index, g));
-            dp.property("weight", get(edge_weight, g));
-            write_graphviz_dp(std::cout, g, dp);
             // cout << i << endl;
             
             j = 0;
