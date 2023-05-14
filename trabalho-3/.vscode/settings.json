@@ -11,5 +11,6 @@
         "xutility": "cpp",
         "iostream": "cpp",
         "utility": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

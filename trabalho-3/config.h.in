@@ -1,1 +1,3 @@
 #cmakedefine PROJECT_DIR "@PROJECT_DIR@"
+#cmakedefine ATSP "@ATSP@"
+#cmakedefine TSP "@TSP@"

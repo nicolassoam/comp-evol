@@ -62,6 +62,6 @@ int main()
     //     std::cout << isl.get_population().champion_f()[0] << '\n';
 
     // }
-    string f_location = PROJECT_DIR;
-    readGraphATSP(f_location+"instances/atsp/ftv70.atsp");
+    string f_location = ATSP;
+    readGraphATSP(f_location+"br17.atsp");
 }
