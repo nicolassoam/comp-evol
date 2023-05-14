@@ -6,7 +6,6 @@ set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "C:\\vcpkg\\installed\\x64-windows\
 set(CMAKE_BUILD_TYPE="Release")
 set(PROJECT_DIR "${PROJECT_SOURCE_DIR}/")
 configure_file(${PROJECT_SOURCE_DIR}/config.h.in ${PROJECT_SOURCE_DIR}/config.h)
- 
 find_package(pagmo CONFIG REQUIRED)
 add_executable(getting_started getting_started.cpp)
 target_link_libraries(getting_started Pagmo::pagmo)

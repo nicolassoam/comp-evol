@@ -13,6 +13,9 @@
 
 #include <pagmo/problems/schwefel.hpp>
 
+#include "graph/graph.cpp"
+
+#include "config.h"
 
 using namespace pagmo;
 
@@ -27,37 +30,38 @@ int main()
 
     // generalised Schwefel test function).
 
-    problem prob{schwefel(10)};
+    // problem prob{schwefel(10)};
 
 
-    // 2 - Instantiate a pagmo algorithm (self-adaptive differential
+    // // 2 - Instantiate a pagmo algorithm (self-adaptive differential
 
-    // evolution, 100 generations).
+    // // evolution, 100 generations).
 
-    algorithm algo{pso(1000)};
-    algo.set_seed(42u);
+    // algorithm algo{pso(1000)};
+    // algo.set_seed(42u);
 
 
-    // 3 - Instantiate an archipelago with 16 islands having each 20 individuals.
+    // // 3 - Instantiate an archipelago with 16 islands having each 20 individuals.
 
-    archipelago archi{16u, algo, prob, 10u};
+    // archipelago archi{16u, algo, prob, 10u};
     
 
-    // 4 - Run the evolution in parallel on the 16 separate islands 10 times.
+    // // 4 - Run the evolution in parallel on the 16 separate islands 10 times.
 
-    archi.evolve(10);
+    // archi.evolve(10);
 
-    // 5 - Wait for the evolutions to finish.
+    // // 5 - Wait for the evolutions to finish.
 
-    archi.wait_check();
+    // archi.wait_check();
 
 
-    // 6 - Print the fitness of the best solution in each island.
+    // // 6 - Print the fitness of the best solution in each island.
 
-    for (const auto &isl : archi) {
+    // for (const auto &isl : archi) {
 
-        std::cout << isl.get_population().champion_f()[0] << '\n';
+    //     std::cout << isl.get_population().champion_f()[0] << '\n';
 
-    }
-
+    // }
+    string f_location = PROJECT_DIR;
+    readGraphATSP(f_location+"instances/atsp/ftv70.atsp");
 }

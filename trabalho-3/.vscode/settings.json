@@ -1,2 +1,15 @@
 {
+    "files.associations": {
+        "*.rmd": "markdown",
+        "xstring": "cpp",
+        "fstream": "cpp",
+        "xlocmes": "cpp",
+        "string": "cpp",
+        "istream": "cpp",
+        "iosfwd": "cpp",
+        "ostream": "cpp",
+        "xutility": "cpp",
+        "iostream": "cpp",
+        "utility": "cpp"
+    }
 }
