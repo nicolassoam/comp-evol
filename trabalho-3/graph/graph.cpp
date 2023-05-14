@@ -13,7 +13,13 @@ typedef Graph::vertex_descriptor Vertex;
 
 void readGraphATSP(string file_location){
     ifstream infile;
-    infile.open(file_location,ios::in);
+    try{
+        infile.open(file_location,ios::in);
+        cout << "arquivo aberto" << endl;
+    } catch(string e) {
+        cout << "Erro ao abrir o arquivo" << endl;
+    };
+        
     int i =4;
 
     string line;
@@ -28,15 +34,19 @@ void readGraphATSP(string file_location){
     stringstream ss(line);  
     string aux;
     getline(ss,aux,' ');
-    getline(ss,aux,' ');
- 
+   
+    getline(ss,aux);
+   
+
     int n;
     n = stoi(aux);
     i = 3;
+    
 
     while(i > 0){
         getline(infile, line,'\n');
         i--;
+        
     }
 
     i = 0;
@@ -46,25 +56,27 @@ void readGraphATSP(string file_location){
 
     while(!infile.eof()){
         while(infile >> line){
-             stringstream ss(line);
+             stringstream cc(line);
              string aux;
-             while(getline(ss,aux,' ')){
-                if(aux == "100000000" || aux == "EOF" || aux == "\n")
+             while(getline(cc,aux,' ')){
+                if(aux == "100000000" || aux == "9999" || aux == "EOF" || aux == "\n")
                     continue;
                 else
                     add_edge(i, j,stoi(aux),g);
 
                 j++;
+                
              };
           
-            // dynamic_properties dp;
-            // dp.property("node_id", get(vertex_index, g));
-            // dp.property("weight", get(edge_weight, g));
-            // write_graphviz_dp(std::cout, g, dp);
-            cout << i << endl;
-            i++;
+            dynamic_properties dp;
+            dp.property("node_id", get(vertex_index, g));
+            dp.property("weight", get(edge_weight, g));
+            write_graphviz_dp(std::cout, g, dp);
+            // cout << i << endl;
+            
+            j = 0;
         };
-       
+       i++;
     }
     
 
