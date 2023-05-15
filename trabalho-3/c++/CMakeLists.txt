@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.15)
+project(Comp_Evol)
+set(CMAKE_CXX_STANDARD 17)
+set(TBB_DIR ${TBB_DIR} "C:\\vcpkg\\packages\\tbb_x64-windows\\**")
+set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "C:\\vcpkg\\installed\\x64-windows\\include\\**")
+set(CMAKE_BUILD_TYPE="Release")
+
+set(PROJECT_DIR "${PROJECT_SOURCE_DIR}/")
+set(ATSP "${PROJECT_SOURCE_DIR}/instances/atsp/")
+set(TSP "${PROJECT_SOURCE_DIR}/instances/tsp/")
+
+configure_file(${PROJECT_SOURCE_DIR}/config.h.in ${PROJECT_SOURCE_DIR}/config.h)
+find_package(pagmo CONFIG REQUIRED)
+add_executable(main main.cpp)
+target_link_libraries(main Pagmo::pagmo)

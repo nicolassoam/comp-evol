@@ -1,0 +1,10 @@
+^C:\USERS\NSM44\DESKTOP\COMPUTA EVOLUCAO\COMP-EVOL\BUILD\CMAKEFILES\3020D903A360C5403E45223B2372090A\GENERATE.STAMP.RULE
+setlocal
+C:\msys64\mingw64\bin\cmake.exe "-SC:/Users/nsm44/Desktop/computa evolucao/comp-evol/trabalho-3" "-BC:/Users/nsm44/Desktop/computa evolucao/comp-evol/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/nsm44/Desktop/computa evolucao/comp-evol/build/Comp_Evol.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

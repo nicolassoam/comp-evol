@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\nsm44\Desktop\computa evolucao\comp-evol\trabalho-3\getting_started.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\nsm44\Desktop\computa evolucao\comp-evol\trabalho-3\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1DD3B9E7-12DD-3E25-B6DB-B76F9631C3E4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
