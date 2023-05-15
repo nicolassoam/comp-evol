@@ -1,3 +1,0 @@
-C:/Users/nsm44/Desktop/computa evolucao/comp-evol/build/CMakeFiles/main.dir
-C:/Users/nsm44/Desktop/computa evolucao/comp-evol/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/nsm44/Desktop/computa evolucao/comp-evol/build/CMakeFiles/ZERO_CHECK.dir
