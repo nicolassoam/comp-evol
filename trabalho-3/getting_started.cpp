@@ -34,18 +34,18 @@ int main()
 
     // evolution, 100 generations).
 
-    algorithm algo{pso(100)};
+    algorithm algo{pso(1000)};
     algo.set_seed(42u);
 
 
     // 3 - Instantiate an archipelago with 16 islands having each 20 individuals.
 
-    archipelago archi{16u, algo, prob, 10u};
+    archipelago archi{16u, algo, prob, 20u};
     
 
     // 4 - Run the evolution in parallel on the 16 separate islands 10 times.
 
-    archi.evolve(100);
+    archi.evolve(10);
 
     // 5 - Wait for the evolutions to finish.
 

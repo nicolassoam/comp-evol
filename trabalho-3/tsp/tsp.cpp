@@ -38,9 +38,10 @@ struct TSPProblem {
             
         // }
         for(auto i = 0; i < n-1; i++){
-            total_distance += dist[dv[i]][dv[i+1]];
+            total_distance += dist[static_cast<size_t>(dv[i])][static_cast<size_t>(dv[i+1])];
+            // cout << dv[i] << " " << dv[i+1] << endl;
         }
-        total_distance += dist[dv[n-1]][dv[0]];
+        total_distance += dist[static_cast<size_t>(dv[n-1])][static_cast<size_t>(dv[0])];
 
         // total_distance += dist[static_cast<size_t>(dv.back())][static_cast<size_t>(dv.front())];
         return {total_distance};
