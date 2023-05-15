@@ -30,7 +30,5 @@
 *.exe
 *.out
 *.app
-
-./cpp/build/
-./cpp/build/*
-./python/results/
+__pycache__/
+results/
