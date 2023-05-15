@@ -23,45 +23,41 @@ using namespace pagmo;
 int main()
 
 {
-
-    // 1 - Instantiate a pagmo problem constructing it from a UDP
-
-    // (i.e., a user-defined problem, in this case the 30-dimensional
-
-    // generalised Schwefel test function).
-
-    // problem prob{schwefel(10)};
-
-
-    // // 2 - Instantiate a pagmo algorithm (self-adaptive differential
-
-    // // evolution, 100 generations).
-
-    // algorithm algo{pso(1000)};
-    // algo.set_seed(42u);
-
-
-    // // 3 - Instantiate an archipelago with 16 islands having each 20 individuals.
-
-    // archipelago archi{16u, algo, prob, 10u};
+    string f_location = ATSP;
+    TSPProblem tsp = readGraphATSP(f_location+"br17.atsp");
     
 
-    // // 4 - Run the evolution in parallel on the 16 separate islands 10 times.
+    problem prob{tsp};
+    cout << prob.get_lb()[0] << endl;
 
-    // archi.evolve(10);
+    // 2 - Instantiate a pagmo algorithm (self-adaptive differential
 
-    // // 5 - Wait for the evolutions to finish.
+    // evolution, 100 generations).
 
-    // archi.wait_check();
+    algorithm algo{pso(100)};
+    algo.set_seed(42u);
 
 
-    // // 6 - Print the fitness of the best solution in each island.
+    // 3 - Instantiate an archipelago with 16 islands having each 20 individuals.
 
-    // for (const auto &isl : archi) {
+    archipelago archi{16u, algo, prob, 10u};
+    
 
-    //     std::cout << isl.get_population().champion_f()[0] << '\n';
+    // 4 - Run the evolution in parallel on the 16 separate islands 10 times.
 
-    // }
-    string f_location = ATSP;
-    readGraphATSP(f_location+"br17.atsp");
+    archi.evolve(100);
+
+    // 5 - Wait for the evolutions to finish.
+
+    archi.wait_check();
+
+
+    // 6 - Print the fitness of the best solution in each island.
+    
+    for (const auto &isl : archi) {
+
+        std::cout << isl.get_population().champion_f()[0] << '\n';
+
+    }
+    cout << prob << endl;
 }
