@@ -11,5 +11,5 @@ set(TSP "${PROJECT_SOURCE_DIR}/instances/tsp/")
 
 configure_file(${PROJECT_SOURCE_DIR}/config.h.in ${PROJECT_SOURCE_DIR}/config.h)
 find_package(pagmo CONFIG REQUIRED)
-add_executable(getting_started getting_started.cpp)
-target_link_libraries(getting_started Pagmo::pagmo)
+add_executable(main main.cpp)
+target_link_libraries(main Pagmo::pagmo)
