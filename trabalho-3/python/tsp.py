@@ -28,8 +28,18 @@ class TSPProblem(Problem):
 
 
 def returnMatrix(problem):
-    g = problem.get_graph()
-    distance = networkx.to_numpy_matrix(g)
+    if problem.edge_weight_format == "FULL_MATRIX":
+        g = problem.get_graph()
+        distance = networkx.to_numpy_matrix(g)
+    else:
+        ## euclidian distance
+        g = problem.get_graph()
+        distance = networkx.to_numpy_matrix(g)
+        for i in range(len(distance)):
+            for j in range(len(distance)):
+                if i != j:
+                    distance[i,j] = np.linalg.norm(np.array(g.nodes[i]['coord']) - np.array(g.nodes[j]['coord']))
+
     return distance
 
             

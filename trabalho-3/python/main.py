@@ -15,14 +15,14 @@ RESULTS = []
 path_atsp = 'instances/atsp'
 path_tsp = 'instances/tsp'
 
-problem = tsplib95.load(f'{path_atsp}/br17.atsp')
+problem = tsplib95.load(f'{path_tsp}/br17.atsp')
 distance = returnMatrix(problem)
 
 lb = [0, ] * len(distance)
 ub = [len(distance)-1, ] * len(distance)
 
 term_dict = {
-    'max_fe': 20000,
+    'max_fe': 200000,
 }
 
 algo = pso.C_PSO(3500,40)
