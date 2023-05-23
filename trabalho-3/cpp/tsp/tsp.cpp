@@ -3,7 +3,7 @@
 #include <vector>
 #include <string.h>
 #include <cmath>
-
+#include <map>
 #include <initializer_list>
 
 #include <utility>
@@ -26,6 +26,7 @@ using namespace std;
 struct TSPProblem {
     int n;
     vector<vector<int>> dist;
+    
     vector_double fitness(const vector_double &dv) const{
        double total_distance = 0.0;
         // for (auto i = 0; i < n; ++i)
@@ -61,11 +62,7 @@ struct TSPProblem {
 
 };
 
-/*
-* Lê o arquivo de entrada do problema ATSP
-* \param file_location localização do arquivo
-*/
-TSPProblem readGraphATSP(string file_location){
+ifstream read_partial(string file_location, int &number){
     ifstream infile;
     try{
         infile.open(file_location,ios::in);
@@ -89,18 +86,72 @@ TSPProblem readGraphATSP(string file_location){
             line = strdup(str.c_str());
             p = strtok(NULL, " :");
             n = atoi(p);
-        } else if(strcmp(p,"EDGE_WEIGHT_SECTION") == 0){
+        } else if(strcmp(p,"EDGE_WEIGHT_SECTION") == 0 || strcmp(p, "NODE_COORD_SECTION") == 0){
             break;
         }
     }
+
+    (number) = n;
+
+    return infile;
+}
+
+
+/*
+* Lê o arquivo de entrada do problema ATSP
+* \param file_location localização do arquivo
+*/
+TSPProblem readGraphATSP(string file_location){
+    int n;
+    ifstream file = read_partial(file_location,n);
 
     TSPProblem tsp;
     tsp.dist = vector<vector<int>>(n,vector<int>(n));
     tsp.n = n;
     for(auto i = 0; i < n; ++i){
         for(auto j = 0; j < n; ++j){
-            infile >> tsp.dist[i][j];
+            file >> tsp.dist[i][j];
         }
     }
+    return tsp;
+}
+int nint(double x){
+    return (int)(x + 0.5);
+}
+
+double calc_euc_dist(double xi, double xj, double yi, double yj){
+    double xd,yd,dij;
+    xd = xi - xj;
+    yd = yi - yj;
+    dij = nint( sqrt( xd*xd + yd*yd) );
+    return dij;
+}
+
+TSPProblem readGraphTSP(string file_location){
+    int n;
+    ifstream file = read_partial(file_location,n);
+
+    TSPProblem tsp;
+    tsp.dist = vector<vector<int>>(n,vector<int>(n));
+    tsp.n = n;
+
+    map<int,pair<double,double>> node;
+    int nodeN;
+    double x,y;
+    for(auto i = 0; i < n; ++i){
+        for(auto j = 0; j < n; ++j){
+            file >> nodeN >> x >>y;
+            node[nodeN] = {x,y};
+        }
+    }
+
+    for(auto i = 0; i < n; ++i){
+        for(auto j = 0; j < n; ++j){
+            tsp.dist[i][j] = calc_euc_dist(node[i].first,node[i].second,node[j].first,node[j].second);
+            // cout << tsp.dist[i][j] << " ";	
+        }
+        // cout <<endl;
+    }
+
     return tsp;
 }

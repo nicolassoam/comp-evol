@@ -10,7 +10,8 @@
         "ostream": "cpp",
         "xutility": "cpp",
         "iostream": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "vector": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
