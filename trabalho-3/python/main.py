@@ -18,19 +18,26 @@ CH130 = 'instances/tsp/ch130.tsp'
 FTV70 = 'instances/atsp/ftv70.atsp'
 
 
-problem_tsp = returnProblem(BERLIN52,'tsp')
+problem_tsp = returnProblem(FTV70,'atsp')
 distance = returnMatrix(problem_tsp)
 
+
 def fit_func(solution):
-    # solution = np.random.permutation(problem_tsp.dimension)
+    solution = np.random.permutation(problem_tsp.dimension)
     solution = np.clip(solution, [0,]*problem_tsp.dimension,[problem_tsp.dimension-1,]*problem_tsp.dimension)
-   
+    # print(solution)
+    # print(distance[solution.astype(np.int64)])
     # dist = distance[solution.astype(np.int64)]
     # print(dist)
+    solution = solution.astype(np.int64)
     sum =0.
     for i in range(len(distance)-1):
-        sum += distance[solution[i],solution[i+1]]
-    sum += distance[solution[-1],solution[0]]
+        k,j = solution[i],solution[i+1]	
+        sum += distance[k,j]
+
+    k,j = solution[-1],solution[0]	
+
+    sum += distance[k,j]
     return sum
 
 def generate_position(lb=None, ub=None):

@@ -23,8 +23,8 @@ using namespace pagmo;
 int main()
 
 {
-    string f_location = TSP;
-    TSPProblem tsp = readGraphTSP(f_location+"berlin52.tsp");
+    string f_location = ATSP;
+    TSPProblem tsp = readGraphATSP(f_location+"ftv70.atsp");
 
     problem prob{tsp};
     

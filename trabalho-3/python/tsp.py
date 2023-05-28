@@ -37,11 +37,10 @@ def returnMatrix(problem):
         ## euclidian distance
         g = problem.get_graph()
         distance = networkx.to_numpy_matrix(g)
-        for i in range(len(distance)):
-            for j in range(len(distance)):
-                if i != j:
-                    distance[i,j] = np.linalg.norm(np.array(g.nodes[i]['coord']) - np.array(g.nodes[j]['coord']))
-
+        # for i in range(len(distance)):
+        #     for j in range(len(distance)):
+        #         if i != j:
+        #             distance[i,j] = np.linalg.norm(np.array(g.nodes[i]['coord']) - np.array(g.nodes[j]['coord']))
     return distance
 
 def returnProblem(path, type):
