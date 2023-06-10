@@ -49,6 +49,15 @@ class DiffEvol {
         double_vec get_fitness();
 };
 
+/*
+    \param long pop_size: population size
+    \param long problem_dim: problem dimension
+    \param int max_iter: maximum number of iterations
+    \param double_vec lb: lower bound
+    \param double_vec ub: upper bound
+    \param double wf: weight factor
+    \param double cr: crossover rate
+*/
 DiffEvol::DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb, double_vec ub, double wf, double cr){
     this->pop_size = pop_size;
     this->problem_dim = problem_dim;
@@ -117,23 +126,6 @@ pop_mat DiffEvol::select_population(pop_mat children, pop_mat parents){
     }
     return new_population;
 }
-
-/*
-    Ruby function:
-    def de_rand_1_bin(p0, p1, p2, p3, f, cr, search_space)
-        sample = {:vector=>Array.new(p0[:vector].size)}
-        cut = rand(sample[:vector].size-1) + 1
-        sample[:vector].each_index do |i|
-        sample[:vector][i] = p0[:vector][i]
-        if (i==cut or rand() < cr)
-        v = p3[:vector][i] + f * (p1[:vector][i] - p2[:vector][i])
-        v = search_space[i][0] if v < search_space[i][0]
-        v = search_space[i][1] if v > search_space[i][1]
-        sample[:vector][i] = v
-        end
-    end
-
-*/
 
 double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_vec parent2, double_vec parent3, int wf, int cr){
    
