@@ -9,7 +9,7 @@
 #include <utility>
 #include <limits>
 
-#define SEED 5
+#define SEED 12
 
 std::mt19937 gen(SEED);
 
@@ -66,6 +66,7 @@ void DiffEvol::init_population(){
         individual temp;
         for (int j = 0; j < problem_dim; j++){
             temp.vec.push_back(lb[j] + (ub[j] - lb[j]) * dis(gen));
+            
         }
         temp.fitness = std::numeric_limits<double>::max();
         
@@ -94,12 +95,8 @@ void DiffEvol::select_parents(pop_mat&pop, int current, int&p1, int&p2, int&p3){
 
 pop_mat DiffEvol::create_children(pop_mat &pop, int wf, int cr){
     
-    std::uniform_real_distribution<double> dis(0.0, 1.0);
     pop_mat children;
     
-    double_vec lb = this->lb;
-    double_vec ub = this->ub;
-
     for(auto i = 0;i < pop.size(); i++){
         int p1, p2, p3;
         select_parents(pop, i, p1, p2, p3);
@@ -113,8 +110,8 @@ pop_mat DiffEvol::create_children(pop_mat &pop, int wf, int cr){
 
 pop_mat DiffEvol::select_population(pop_mat children, pop_mat parents){
     pop_mat new_population;
-    for(auto child : children){
-        for(auto parent: parents){
+    for(individual child : children){
+        for(individual parent: parents){
             new_population.push_back(child.fitness <= parent.fitness ? child : parent);
         }
     }
@@ -175,8 +172,8 @@ individual DiffEvol::search(){
        for (int i = 0; i < children.size(); i++) {
            children[i].fitness = objective_function(children[i].vec);
        }
-
-       this->population = select_population(children, this->population);
+       
+       this->population.insert(this->population.end(), children.begin(), children.end());
 
        std::sort(this->population.begin(), this->population.end(), [](const individual& a, const individual& b) { return a.fitness < b.fitness; });
 
@@ -197,11 +194,11 @@ void DiffEvol::evaluate(){
     std::cout << "Population size: " << this->pop_size << std::endl;
     std::cout << "Problem dimension: " << this->problem_dim << std::endl;
     std::cout << "Lower bound: " << std::endl;
-    for(auto i : this->lb)
+    for(double i : this->lb)
         std::cout << i << " ";
     std::cout << std::endl;
     std::cout << "Upper bound: " << std::endl;
-    for(auto i : this->ub)
+    for(double i : this->ub)
         std::cout << i << " ";
     std::cout << std::endl;
     std::cout << "Weight factor: " << this->wf << std::endl;
@@ -209,7 +206,7 @@ void DiffEvol::evaluate(){
     std::cout << "Max iteration: " << this->max_iter << std::endl;
     std::cout << "Best solution: " << std::endl;
     individual best = search();
-    for(auto i : best.vec)
+    for(double i : best.vec)
         std::cout << i << " ";
     std::cout << std::endl;
     std::cout << "Best fitness: " << best.fitness << std::endl;
