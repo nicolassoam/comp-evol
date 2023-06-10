@@ -5,3 +5,4 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 file(GLOB SOURCES "src/*.cpp" "include/*.h")
 add_library(comp ${SOURCES})
+add_subdirectory(src)

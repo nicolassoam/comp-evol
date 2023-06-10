@@ -14,9 +14,10 @@
 std::mt19937 gen(SEED);
 
 typedef std::vector<double> double_vec;
-typedef struct {
+typedef struct individual{
     double_vec vec;
     double fitness;
+    individual(): fitness(0.0) {};
 } individual;
 
 typedef std::vector<individual> pop_mat;
@@ -102,8 +103,9 @@ pop_mat DiffEvol::create_children(pop_mat &pop, int wf, int cr){
     for(auto i = 0;i < pop.size(); i++){
         int p1, p2, p3;
         select_parents(pop, i, p1, p2, p3);
-        double_vec child = de_rand_1_bin(pop[i].vec, pop[p1].vec, pop[p2].vec, pop[p3].vec, wf, cr);
-        children.push_back({child, objective_function(child)});
+        individual child;
+        child.vec = de_rand_1_bin(pop[i].vec, pop[p1].vec, pop[p2].vec, pop[p3].vec, wf, cr);
+        children.push_back(child);
     }
 
     return children;
@@ -141,7 +143,7 @@ double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_ve
    double_vec sample(pop.size());
 //    std::uniform_int_distribution<int> dis(0, pop_size - 1);
    int cut = gen() % (pop.size() - 1) + 1;
-
+   
    for (int i = 0; i < sample.size(); i++) {
         sample[i] = pop[i];
         if (i == cut || (double)gen() / RAND_MAX < cr) {
@@ -173,7 +175,8 @@ individual DiffEvol::search(){
        for (int i = 0; i < children.size(); i++) {
            children[i].fitness = objective_function(children[i].vec);
        }
-       this->population.insert(this->population.end(), children.begin(), children.end());
+
+       this->population = select_population(children, this->population);
 
        std::sort(this->population.begin(), this->population.end(), [](const individual& a, const individual& b) { return a.fitness < b.fitness; });
 
@@ -191,5 +194,25 @@ individual DiffEvol::search(){
 
 void DiffEvol::evaluate(){
     
+    std::cout << "Population size: " << this->pop_size << std::endl;
+    std::cout << "Problem dimension: " << this->problem_dim << std::endl;
+    std::cout << "Lower bound: " << std::endl;
+    for(auto i : this->lb)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    std::cout << "Upper bound: " << std::endl;
+    for(auto i : this->ub)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    std::cout << "Weight factor: " << this->wf << std::endl;
+    std::cout << "Crossover rate: " << this->cr << std::endl;
+    std::cout << "Max iteration: " << this->max_iter << std::endl;
+    std::cout << "Best solution: " << std::endl;
+    individual best = search();
+    for(auto i : best.vec)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    std::cout << "Best fitness: " << best.fitness << std::endl;
+
 }
 #endif
