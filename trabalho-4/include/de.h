@@ -177,6 +177,7 @@ individual DiffEvol::search(){
 
        std::cout << " > gen " << gen+1 << ", fitness=" << best.fitness << std::endl;
    }
+
     return best;
 }
 
