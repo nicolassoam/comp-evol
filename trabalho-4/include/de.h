@@ -151,19 +151,24 @@ double DiffEvol::objective_function(double_vec& vec){
     //rosenbrock function
     for(int i = 0; i < vec.size() - 1; i++){
         sum += 100 * (vec[i + 1] - vec[i] * vec[i]) * (vec[i + 1] - vec[i] * vec[i]) + (vec[i] - 1) * (vec[i] - 1);
-    } 
+    }
+    //schwefel function
+    // for(int i = 0; i < vec.size(); i++){
+    //     sum += vec[i] * sin(sqrt(abs(vec[i])));
+    // }
+
     return sum;
 }
 
 individual DiffEvol::search(){
     init_population();
 
-    // for(individual i: this->population)
-    //     i.fitness = objective_function(i.vec);
+    for(individual &i: this->population)
+        i.fitness = objective_function(i.vec);
 
-    for(int i = 0; i < this->population.size(); i++){
-        this->population[i].fitness = objective_function(this->population[i].vec);
-    }
+    // for(int i = 0; i < this->population.size(); i++){
+    //     this->population[i].fitness = objective_function(this->population[i].vec);
+    // }
 
     individual best = *std::min_element(population.begin(), population.end(), [](const individual& a, const individual& b) { return a.fitness < b.fitness; });
     for (int gen = 0; gen < this->max_iter; gen++) {
@@ -191,7 +196,9 @@ individual DiffEvol::search(){
 
 
 void DiffEvol::evaluate(){
-    
+
+    individual best = search();
+
     std::cout << "Population size: " << this->pop_size << std::endl;
     std::cout << "Problem dimension: " << this->problem_dim << std::endl;
     std::cout << "Lower bound: " << std::endl;
@@ -210,13 +217,13 @@ void DiffEvol::evaluate(){
     std::cout << "Crossover rate: " << this->cr << std::endl;
     std::cout << "Max iteration: " << this->max_iter << std::endl;
     std::cout << "Best solution: " << std::endl;
-
-    individual best = search();
+    std::cout << "[" ;
 
     for(double i : best.vec)
-        std::cout << i << " ";
+        std::cout << i << ", ";
 
-    std::cout << std::endl;
+    std::cout << "]" << std::endl;
+
     std::cout << "Best fitness: " << best.fitness << std::endl;
 
 }
