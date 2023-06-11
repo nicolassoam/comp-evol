@@ -34,7 +34,7 @@ class DiffEvol {
         double wf;
         double cr;
         void init_population();
-        void select_parents(pop_mat&pop, int current, int&p1, int&p2, int&p3);
+        void select_parents(int current, int&p1, int&p2, int&p3);
         pop_mat create_children(pop_mat &pop, int wf, int cr);
         pop_mat select_population(pop_mat parents, pop_mat children);
         double_vec de_rand_1_bin(double_vec pop, double_vec parent1, double_vec parent2, double_vec parent3, int wf, int cr);
@@ -83,7 +83,7 @@ void DiffEvol::init_population(){
     }
 }
 
-void DiffEvol::select_parents(pop_mat&pop, int current, int&p1, int&p2, int&p3){
+void DiffEvol::select_parents(int current, int&p1, int&p2, int&p3){
     std::uniform_int_distribution<int> dis(0, pop_size - 1);
 
     int r1 = dis(gen);
@@ -108,7 +108,7 @@ pop_mat DiffEvol::create_children(pop_mat &pop, int wf, int cr){
     
     for(int i = 0;i < pop.size(); i++){
         int p1, p2, p3;
-        select_parents(pop, i, p1, p2, p3);
+        select_parents(i, p1, p2, p3);
         individual child;
         child.vec = de_rand_1_bin(pop[i].vec, pop[p1].vec, pop[p2].vec, pop[p3].vec, wf, cr);
         children.push_back(child);
@@ -131,8 +131,10 @@ double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_ve
    
    double_vec sample(pop.size());
 //    std::uniform_int_distribution<int> dis(0, pop_size - 1);
+
    int cut = gen() % (pop.size() - 1) + 1;
-   for (int i = 0; i < sample.size(); i++) {
+   
+   for (double_vec::size_type i = 0; i < sample.size(); i++) {
         sample[i] = pop[i];
         if (i == cut || (double)gen() < cr) {
             double v = parent3[i] + wf * (parent1[i] - parent2[i]);
@@ -149,7 +151,7 @@ double DiffEvol::objective_function(double_vec& vec){
     // for(double element : vec)
     //     sum += element * element;  
     //rosenbrock function
-    for(int i = 0; i < vec.size() - 1; i++){
+    for(double_vec::size_type i = 0; i < vec.size() - 1; i++){
         sum += 100 * (vec[i + 1] - vec[i] * vec[i]) * (vec[i + 1] - vec[i] * vec[i]) + (vec[i] - 1) * (vec[i] - 1);
     }
     //schwefel function
@@ -174,9 +176,11 @@ individual DiffEvol::search(){
     for (int gen = 0; gen < this->max_iter; gen++) {
        pop_mat children = create_children(this->population, this->wf, cr);
 
-       for(int i = 0; i < children.size(); i++){
-         children[i].fitness = objective_function(children[i].vec);
-       }
+    //    for(int i = 0; i < children.size(); i++){
+    //      children[i].fitness = objective_function(children[i].vec);
+    //    }
+       for(individual &child: children)
+            child.fitness = objective_function(child.vec);
            
        this->population = select_population(children, this->population);
 
