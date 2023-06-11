@@ -12,5 +12,5 @@ set(FALKENAUER_T "${PROJECT_SOURCE_DIR}/instances/Falkenauer/Falkenauer_T")
 
 configure_file(${PROJECT_SOURCE_DIR}/include/config.h.in ${PROJECT_SOURCE_DIR}/include/config.h)
 
-add_compile_options(-std=c++20 -O3 -fPIC)
+add_compile_options(-std=c++20 -Ofast -fPIC -march=native)
 add_subdirectory(src)

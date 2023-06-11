@@ -8,8 +8,8 @@
 int main(){
     srand(SEED);
     int problem_dimension = 10;
-    int population_size = 100 * problem_dimension;
-    int epochs = 4000;
+    int population_size = 1000 * problem_dimension;
+    int epochs = 12000;
     double wf = 0.8;
     double cr = 0.9;
     double_vec lb(problem_dimension, 0);
