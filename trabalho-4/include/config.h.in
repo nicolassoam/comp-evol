@@ -1,0 +1,2 @@
+#cmakedefine PROJECT_DIR "@PROJECT_DIR@"
+#cmakedefine INSTANCES "@INSTANCES@" 

@@ -5,17 +5,21 @@
 #include <iostream>
 #include <fstream>
 #include <utility>
+#include <string>
 #include <vector>
 
-std::pair<int,int> readInstance(std::fstream &file){
+std::pair<int,int> readInstance(std::ifstream &file, std::vector<int> &weights){
     int num_items, capacity;
-    std::vector<int> weights(num_items);
-    file >> num_items >> capacity;
+    int weight;
+    file.seekg(0, std::ios::beg);
+
+    file >> num_items;
+    file >> capacity;
 
     while(!file.eof()){
-        for(int i = 0; i < num_items; i++){
-            file >> weights[i];
-        }
+        file >> weight;
+        weights.push_back(weight);
+        
     }
     return {num_items, capacity};
 }
