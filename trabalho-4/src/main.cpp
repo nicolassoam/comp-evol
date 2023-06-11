@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../include/de.h"
+#include "../include/utils.h"
 #include <random>
 
 int main(){
@@ -11,7 +12,11 @@ int main(){
     double cr = 0.9;
     double_vec lb(problem_dimension, 0);
     double_vec ub(problem_dimension, 100);
+
     DiffEvol de(population_size, problem_dimension, epochs, lb, ub, wf, cr);
+
+    // int num_itens, capacity = readInstance(file);
+
     de.evaluate();
     return 0;
 }

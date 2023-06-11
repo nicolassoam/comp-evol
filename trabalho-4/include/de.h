@@ -11,7 +11,7 @@
 
 #define SEED 12
 
-std::mt19937 gen(SEED);
+inline std::mt19937 gen(SEED);
 
 typedef std::vector<double> double_vec;
 typedef struct individual{
