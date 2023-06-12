@@ -13,17 +13,17 @@ int main(){
 
     std::vector<int> weights;
 
-    file.open(instance+"/Falkenauer_u120_00.txt", std::ios::in);
+    file.open(instance+"/Falkenauer_u250_01.txt", std::ios::in);
     
     auto [num_itens, capacity] = readInstance(file,weights); // C++17
 
-    int problem_dimension = 10;
-    int population_size = 1000 * problem_dimension;
-    int epochs = 12000;
+    int problem_dimension = num_itens;
+    int population_size = 10 * problem_dimension;
+    int epochs = 6000;
     double wf = 0.8;
     double cr = 0.9;
     double_vec lb(problem_dimension, 1);
-    double_vec ub(problem_dimension, num_itens);
+    double_vec ub(problem_dimension, num_itens-1);
 
    
 

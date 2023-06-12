@@ -170,15 +170,12 @@ double DiffEvol::objective_function(double_vec& vec){
         total_weight += vec[i];
     }
 
-    double K = 1;
+    double K = 0.5;
     double num_cases = std::ceil(total_weight / this->capacity);
     double utilization = total_weight / (num_cases * this->capacity);
     double fitness = num_cases + K * (1 - utilization);
 
     return fitness;
-
-
-    return total_weight;
 }
 
 individual DiffEvol::search(){
