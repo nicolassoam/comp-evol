@@ -17,7 +17,7 @@ inline std::mt19937 gen(SEED);
 
 typedef std::vector<double> double_vec;
 typedef struct individual{
-    double_vec vec;
+    double_vec cromo;
     double fitness;
     individual(): fitness(0.0) {};
 } individual;
@@ -46,7 +46,7 @@ class DiffEvol {
         pop_mat select_population(pop_mat parents, pop_mat children);
         double_vec de_rand_1_bin(double_vec pop, double_vec parent1, double_vec parent2, double_vec parent3, int wf, int cr);
         individual search();
-        double objective_function(double_vec &vec);
+        double objective_function(double_vec &cromo);
     public:
         DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb, double_vec ub, double wf, double cr, weights w, int capacity, int n_itens);
         void evaluate();
@@ -82,8 +82,9 @@ void DiffEvol::init_population(){
     std::uniform_real_distribution<double> dis(0.0, 1.0);
     for (int i = 0; i < pop_size; i++){
         individual temp;
+        
         // for (int j = 0; j < problem_dim; j++){
-        //     temp.vec.push_back(lb[j] + (ub[j] - lb[j]) * dis(gen));
+        //     temp.cromo.push_back(lb[j] + (ub[j] - lb[j]) * dis(gen));
         // }
 
         std::vector <int> itens(this->n_itens);
@@ -91,9 +92,9 @@ void DiffEvol::init_population(){
         std::shuffle(itens.begin(), itens.end(),gen);
 
         for(int item : itens)
-            temp.vec.push_back(item);
+            temp.cromo.push_back(item);
 
-        temp.fitness = std::numeric_limits<double>::max();
+        temp.fitness = this->n_itens-1;
         
         population.push_back(temp);
     }
@@ -126,7 +127,7 @@ pop_mat DiffEvol::create_children(pop_mat &pop, int wf, int cr){
         int p1, p2, p3;
         select_parents(i, p1, p2, p3);
         individual child;
-        child.vec = de_rand_1_bin(pop[i].vec, pop[p1].vec, pop[p2].vec, pop[p3].vec, wf, cr);
+        child.cromo = de_rand_1_bin(pop[i].cromo, pop[p1].cromo, pop[p2].cromo, pop[p3].cromo, wf, cr);
         children.push_back(child);
     }
 
@@ -162,18 +163,17 @@ double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_ve
     return sample;
 }
 
-double DiffEvol::objective_function(double_vec& vec){
+double DiffEvol::objective_function(double_vec& cromo){
     
     double total_weight = 0.0;
 
     for (int i = 0; i < this->n_itens; i++) {
-        total_weight += vec[i];
+        total_weight += cromo[i];
     }
 
-    double K = 0.5;
     double num_cases = std::ceil(total_weight / this->capacity);
     double utilization = total_weight / (num_cases * this->capacity);
-    double fitness = num_cases + K * (1 - utilization);
+    double fitness = num_cases + this->wf * (1 - utilization);
 
     return fitness;
 }
@@ -182,14 +182,14 @@ individual DiffEvol::search(){
     init_population();
 
     for(individual &i: this->population)
-        i.fitness = objective_function(i.vec);
+        i.fitness = objective_function(i.cromo);
 
     individual best = *std::min_element(population.begin(), population.end(), [](const individual& a, const individual& b) { return a.fitness < b.fitness; });
     for (int gen = 0; gen < this->max_iter; gen++) {
        pop_mat children = create_children(this->population, this->wf, cr);
 
        for(individual &child: children)
-            child.fitness = objective_function(child.vec);
+            child.fitness = objective_function(child.cromo);
            
        this->population = select_population(children, this->population);
 
@@ -232,7 +232,7 @@ void DiffEvol::evaluate(){
     std::cout << "Best solution: " << std::endl;
     std::cout << "[" ;
 
-    for(double i : best.vec)
+    for(double i : best.cromo)
         std::cout << i << ", ";
 
     std::cout << "]" << std::endl;
