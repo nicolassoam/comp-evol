@@ -4,6 +4,8 @@
 #include <random>
 #include <vector>
 #include <algorithm>
+#include <numeric>
+#include <iomanip>
 #include <iostream>
 #include <cmath>
 #include <utility>
@@ -20,6 +22,8 @@ typedef struct individual{
     individual(): fitness(0.0) {};
 } individual;
 
+typedef std::vector<int> weights;
+
 typedef std::vector<individual> pop_mat;
 
 class DiffEvol {
@@ -31,6 +35,9 @@ class DiffEvol {
         double_vec fitness;
         double_vec lb;
         double_vec ub;
+        weights w;
+        int capacity;
+        int n_itens;
         double wf;
         double cr;
         void init_population();
@@ -41,7 +48,7 @@ class DiffEvol {
         individual search();
         double objective_function(double_vec &vec);
     public:
-        DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb, double_vec ub, double wf, double cr);
+        DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb, double_vec ub, double wf, double cr, weights w, int capacity, int n_itens);
         void evaluate();
         double_vec get_best();
         double_vec get_best_fitness();
@@ -58,7 +65,7 @@ class DiffEvol {
     \param double wf: weight factor
     \param double cr: crossover rate
 */
-DiffEvol::DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb, double_vec ub, double wf, double cr){
+DiffEvol::DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb, double_vec ub, double wf, double cr, weights w, int capacity, int n_itens){
     this->pop_size = pop_size;
     this->problem_dim = problem_dim;
     this->lb = lb;
@@ -66,17 +73,26 @@ DiffEvol::DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb,
     this->wf = wf;
     this->cr = cr;
     this->max_iter = max_iter;
-    
+    this->w = w;
+    this->capacity = capacity;
+    this->n_itens = n_itens;
 }
 
 void DiffEvol::init_population(){
     std::uniform_real_distribution<double> dis(0.0, 1.0);
     for (int i = 0; i < pop_size; i++){
         individual temp;
-        for (int j = 0; j < problem_dim; j++){
-            temp.vec.push_back(lb[j] + (ub[j] - lb[j]) * dis(gen));
-            
-        }
+        // for (int j = 0; j < problem_dim; j++){
+        //     temp.vec.push_back(lb[j] + (ub[j] - lb[j]) * dis(gen));
+        // }
+
+        std::vector <int> itens(this->n_itens);
+        std::iota(itens.begin(), itens.end(), 1);
+        std::shuffle(itens.begin(), itens.end(),gen);
+
+        for(int item : itens)
+            temp.vec.push_back(item);
+
         temp.fitness = std::numeric_limits<double>::max();
         
         population.push_back(temp);
@@ -147,19 +163,22 @@ double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_ve
 }
 
 double DiffEvol::objective_function(double_vec& vec){
-    double sum = 0;
-    // for(double element : vec)
-    //     sum += element * element;  
-    //rosenbrock function
-    for(double_vec::size_type i = 0; i < vec.size() - 1; i++){
-        sum += 100 * (vec[i + 1] - vec[i] * vec[i]) * (vec[i + 1] - vec[i] * vec[i]) + (vec[i] - 1) * (vec[i] - 1);
-    }
-    //schwefel function
-    // for(int i = 0; i < vec.size(); i++){
-    //     sum += vec[i] * sin(sqrt(abs(vec[i])));
-    // }
+    
+    double total_weight = 0.0;
 
-    return sum;
+    for (int i = 0; i < this->n_itens; i++) {
+        total_weight += vec[i];
+    }
+
+    double K = 1;
+    double num_cases = std::ceil(total_weight / this->capacity);
+    double utilization = total_weight / (num_cases * this->capacity);
+    double fitness = num_cases + K * (1 - utilization);
+
+    return fitness;
+
+
+    return total_weight;
 }
 
 individual DiffEvol::search(){
@@ -168,17 +187,10 @@ individual DiffEvol::search(){
     for(individual &i: this->population)
         i.fitness = objective_function(i.vec);
 
-    // for(int i = 0; i < this->population.size(); i++){
-    //     this->population[i].fitness = objective_function(this->population[i].vec);
-    // }
-
     individual best = *std::min_element(population.begin(), population.end(), [](const individual& a, const individual& b) { return a.fitness < b.fitness; });
     for (int gen = 0; gen < this->max_iter; gen++) {
        pop_mat children = create_children(this->population, this->wf, cr);
 
-    //    for(int i = 0; i < children.size(); i++){
-    //      children[i].fitness = objective_function(children[i].vec);
-    //    }
        for(individual &child: children)
             child.fitness = objective_function(child.vec);
            
