@@ -189,8 +189,6 @@ double DiffEvol::objective_function(double_vec& cromo){
         }
     }
 
-    
-
     int wastage = 0;
 
     for(int bin : bins)
@@ -253,10 +251,10 @@ void DiffEvol::evaluate(){
     std::cout << "Best solution: " << std::endl;
     std::cout << "[" ;
 
-    std::unordered_set<double> s;
-    unsigned size = best.cromo.size();
-    for( unsigned i = 0; i < size; ++i ) s.insert( best.cromo[i] );
-    best.cromo.assign( s.begin(), s.end() );
+    // std::unordered_set<double> s;
+    // unsigned size = best.cromo.size();
+    // for( unsigned i = 0; i < size; ++i ) s.insert( best.cromo[i] );
+    // best.cromo.assign( s.begin(), s.end() );
 
 
     for(double i : best.cromo)

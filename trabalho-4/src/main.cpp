@@ -15,8 +15,8 @@ int main(){
 
     file.open(instance+"/Falkenauer_u120_01.txt", std::ios::in);
     
-    auto [num_itens, capacity] = readInstance(file,weights); // C++17
-
+    auto [num_itens, capacity] = readInstance(file,weights); 
+    
     int problem_dimension = num_itens;
     int population_size = 10 * problem_dimension;
     int epochs = 6000;
