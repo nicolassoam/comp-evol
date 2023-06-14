@@ -13,7 +13,7 @@ int main(){
 
     std::vector<int> weights;
 
-    file.open(instance+"/Falkenauer_u250_01.txt", std::ios::in);
+    file.open(instance+"/Falkenauer_u120_01.txt", std::ios::in);
     
     auto [num_itens, capacity] = readInstance(file,weights); // C++17
 
@@ -22,10 +22,8 @@ int main(){
     int epochs = 6000;
     double wf = 0.8;
     double cr = 0.9;
-    double_vec lb(problem_dimension, 1);
+    double_vec lb(problem_dimension, 0);
     double_vec ub(problem_dimension, num_itens-1);
-
-   
 
     DiffEvol de(population_size, problem_dimension, epochs, lb, ub, wf, cr, weights, capacity, num_itens);
 

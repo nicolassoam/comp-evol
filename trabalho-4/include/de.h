@@ -6,14 +6,21 @@
 #include <algorithm>
 #include <numeric>
 #include <iomanip>
+#include <queue>
+#include <unordered_set>
+#include <list>
 #include <iostream>
 #include <cmath>
 #include <utility>
 #include <limits>
 
-#define SEED 12
+#define SEED 30
 
 inline std::mt19937 gen(SEED);
+
+// typedef struct bin{
+//     int capacity;
+// }bin;
 
 typedef std::vector<double> double_vec;
 typedef struct individual{
@@ -88,7 +95,7 @@ void DiffEvol::init_population(){
         // }
 
         std::vector <int> itens(this->n_itens);
-        std::iota(itens.begin(), itens.end(), 1);
+        std::iota(itens.begin(), itens.end(), 0);
         std::shuffle(itens.begin(), itens.end(),gen);
 
         for(int item : itens)
@@ -163,19 +170,33 @@ double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_ve
     return sample;
 }
 
-double DiffEvol::objective_function(double_vec& cromo){
-    
-    double total_weight = 0.0;
 
-    for (int i = 0; i < this->n_itens; i++) {
-        total_weight += cromo[i];
+double DiffEvol::objective_function(double_vec& cromo){
+    std::vector<int> bins;
+    int aux_weight = 0;
+
+    // std::unordered_set<double> s;
+    // unsigned size = cromo.size();
+    // for( unsigned i = 0; i < size; ++i ) s.insert( cromo[i] );
+    // cromo.assign( s.begin(), s.end() );
+
+    for(int crom : cromo){
+        if(aux_weight + this->w[crom] <= this->capacity){
+            aux_weight += this->w[crom];
+        }else{
+            bins.push_back(aux_weight);
+            aux_weight = 0;
+        }
     }
 
-    double num_cases = std::ceil(total_weight / this->capacity);
-    double utilization = total_weight / (num_cases * this->capacity);
-    double fitness = num_cases + this->wf * (1 - utilization);
+    
 
-    return fitness;
+    int wastage = 0;
+
+    for(int bin : bins)
+        wastage += this->capacity - bin;
+
+    return bins.size()+wastage;
 }
 
 individual DiffEvol::search(){
@@ -231,6 +252,12 @@ void DiffEvol::evaluate(){
     std::cout << "Max iteration: " << this->max_iter << std::endl;
     std::cout << "Best solution: " << std::endl;
     std::cout << "[" ;
+
+    std::unordered_set<double> s;
+    unsigned size = best.cromo.size();
+    for( unsigned i = 0; i < size; ++i ) s.insert( best.cromo[i] );
+    best.cromo.assign( s.begin(), s.end() );
+
 
     for(double i : best.cromo)
         std::cout << i << ", ";
