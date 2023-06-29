@@ -14,7 +14,7 @@
 #include <utility>
 #include <limits>
 
-#define SEED 30
+#define SEED 60
 
 inline std::mt19937 gen(SEED);
 
@@ -172,29 +172,40 @@ double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_ve
 
 
 double DiffEvol::objective_function(double_vec& cromo){
-    std::vector<int> bins;
+    std::vector<std::pair<int,double>> bins;
+    int bin_n = 0;
     int aux_weight = 0;
 
-    // std::unordered_set<double> s;
-    // unsigned size = cromo.size();
-    // for( unsigned i = 0; i < size; ++i ) s.insert( cromo[i] );
-    // cromo.assign( s.begin(), s.end() );
+    std::unordered_set<double> unique_values;
+    int penalty = 0;
 
-    for(int crom : cromo){
-        if(aux_weight + this->w[crom] <= this->capacity){
-            aux_weight += this->w[crom];
+    for(double value : cromo){
+        if(unique_values.count(value) == 0){
+            unique_values.insert(value);
         }else{
-            bins.push_back(aux_weight);
-            aux_weight = 0;
+            penalty++;
         }
     }
 
-    int wastage = 0;
+    for(auto i : cromo){
+        if(aux_weight + this->w[i] <= this->capacity){
+            aux_weight += this->w[i];
+        }else{
+            bins.push_back({bin_n,aux_weight});
+            aux_weight = 0;
+            bin_n++;
+        }
+    }
 
-    for(int bin : bins)
-        wastage += this->capacity - bin;
+    double sum_b = 0;
+    for (auto bin : bins){
+        sum_b += pow(bin.second/this->capacity,2);
+    }
 
-    return bins.size()+wastage;
+    double fitness = bins.size() - sum_b;
+    fitness += penalty;
+
+    return fitness;
 }
 
 individual DiffEvol::search(){
