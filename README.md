@@ -8,7 +8,7 @@ A disciplina consiste na realização de trabalhos envolvendo o uso de metaheur�
 |:-------------------------------------------------------------------:	|:-----------------:	|
 | [**2. Resolver problemas de otimização em espaço de busca contínuo**](#resolver-problemas-de-otimização-em-espaço-de-busca-contínuo) 	| [Trabalho 2](trabalho-2/)                  	|
 | [**3. Resolver Problemas de Otimização Combinatória**](#resolver-problemas-de-otimização-combinatória)                	| [Trabalho 3](trabalho-3/)                   	|
-| [**4. Bin Packing Problem com Evolução Diferencial](#bin-packing-problem-com-evolução-diferencial)                                                                     	|                   	| [Trabalho-4](trabalho-4/)
+| [**4. Bin Packing Problem com Evolução Diferencial**](#bin-packing-problem-com-evolução-diferencial)                                                                     	|                   	| [Trabalho-4](trabalho-4/)
 |                                                                     	|                   	|
 
 ### Resolver problemas de otimização em espaço de busca contínuo
