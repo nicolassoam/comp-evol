@@ -10,6 +10,7 @@ set(INSTANCES "${PROJECT_SOURCE_DIR}/instances")
 set(FALKENAUER_U "${PROJECT_SOURCE_DIR}/instances/Falkenauer/Falkenauer_U")
 set(FALKENAUER_T "${PROJECT_SOURCE_DIR}/instances/Falkenauer/Falkenauer_T")
 set(WAESCHER "${PROJECT_SOURCE_DIR}/instances/Waescher/")
+set(SCHOLL "${PROJECT_SOURCE_DIR}/instances/Scholl/")
 
 configure_file(${PROJECT_SOURCE_DIR}/include/config.h.in ${PROJECT_SOURCE_DIR}/include/config.h)
 

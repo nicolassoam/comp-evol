@@ -3,10 +3,13 @@
 
 #cmakedefine PROJECT_DIR "@PROJECT_DIR@"
 #cmakedefine INSTANCES "@INSTANCES@"
+
 #cmakedefine FALKENAUER_U "@FALKENAUER_U@"
 #cmakedefine FALKENAUER_T "@FALKENAUER_T@" 
 
 #cmakedefine WAESCHER "@WAESCHER@"
+
+#cmakedefine SCHOLL "@SCHOLL@"
 
 
 #endif
