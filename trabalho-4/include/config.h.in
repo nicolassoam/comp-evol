@@ -6,5 +6,7 @@
 #cmakedefine FALKENAUER_U "@FALKENAUER_U@"
 #cmakedefine FALKENAUER_T "@FALKENAUER_T@" 
 
+#cmakedefine WAESCHER "@WAESCHER@"
+
 
 #endif
