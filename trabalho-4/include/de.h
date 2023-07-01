@@ -11,12 +11,13 @@
 #include <list>
 #include <iostream>
 #include <cmath>
+#include <omp.h>
 #include <utility>
 #include <limits>
 
-#define SEED 60
+// #define SEED 122
 
-inline std::mt19937 gen(SEED);
+// inline std::mt19937 gen;
 
 // typedef struct bin{
 //     int capacity;
@@ -35,6 +36,7 @@ typedef std::vector<individual> pop_mat;
 
 class DiffEvol {
     private:
+        std::mt19937 gen;
         long pop_size;
         long problem_dim;
         int max_iter;
@@ -56,7 +58,7 @@ class DiffEvol {
         double objective_function(double_vec &cromo);
     public:
         DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb, double_vec ub, double wf, double cr, weights w, int capacity, int n_itens);
-        void evaluate();
+        void evaluate(unsigned int seed);
         double_vec get_best();
         double_vec get_best_fitness();
         pop_mat get_population();
@@ -87,6 +89,7 @@ DiffEvol::DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb,
 
 void DiffEvol::init_population(){
     std::uniform_real_distribution<double> dis(0.0, 1.0);
+    
     for (int i = 0; i < pop_size; i++){
         individual temp;
         
@@ -113,7 +116,7 @@ void DiffEvol::select_parents(int current, int&p1, int&p2, int&p3){
     int r1 = dis(gen);
     int r2 = dis(gen);
     int r3 = dis(gen);
-
+    
     while (r1 == current || r2 == current || r3 == current || r1 == r2 || r1 == r3 || r2 == r3){
         r1 = dis(gen);
         r2 = dis(gen);
@@ -143,6 +146,7 @@ pop_mat DiffEvol::create_children(pop_mat &pop, int wf, int cr){
 
 pop_mat DiffEvol::select_population(pop_mat children, pop_mat parents){
     pop_mat new_population;
+    //push_back isn't thread safe, thus we use a lock
     
     for(int i = 0; i < children.size(); i++){
         new_population.push_back(children[i].fitness <= parents[i].fitness ? children[i] : parents[i]);
@@ -157,7 +161,7 @@ double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_ve
 //    std::uniform_int_distribution<int> dis(0, pop_size - 1);
 
    int cut = gen() % (pop.size() - 1) + 1;
-   
+
    for (double_vec::size_type i = 0; i < sample.size(); i++) {
         sample[i] = pop[i];
         if (i == cut || (double)gen() < cr) {
@@ -172,13 +176,12 @@ double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_ve
 
 
 double DiffEvol::objective_function(double_vec& cromo){
-    std::vector<std::pair<int,double>> bins;
-    int bin_n = 0;
+    std::vector<double> bins;
     int aux_weight = 0;
 
     std::unordered_set<double> unique_values;
     int penalty = 0;
-
+    
     for(double value : cromo){
         if(unique_values.count(value) == 0){
             unique_values.insert(value);
@@ -186,20 +189,20 @@ double DiffEvol::objective_function(double_vec& cromo){
             penalty++;
         }
     }
-
+    
     for(auto i : cromo){
         if(aux_weight + this->w[i] <= this->capacity){
             aux_weight += this->w[i];
         }else{
-            bins.push_back({bin_n,aux_weight});
+            bins.push_back(aux_weight);
             aux_weight = 0;
-            bin_n++;
         }
     }
 
     double sum_b = 0;
-    for (auto bin : bins){
-        sum_b += pow(bin.second/this->capacity,2);
+    #pragma omp parallel for reduction(+:sum_b)
+    for (int i = 0; i < bins.size(); i++){
+        sum_b += pow(bins[i]/this->capacity,2);
     }
 
     double fitness = bins.size() - sum_b;
@@ -215,9 +218,11 @@ individual DiffEvol::search(){
         i.fitness = objective_function(i.cromo);
 
     individual best = *std::min_element(population.begin(), population.end(), [](const individual& a, const individual& b) { return a.fitness < b.fitness; });
+    
     for (int gen = 0; gen < this->max_iter; gen++) {
        pop_mat children = create_children(this->population, this->wf, cr);
 
+       #pragma omp parallel for num_threads(8)
        for(individual &child: children)
             child.fitness = objective_function(child.cromo);
            
@@ -238,8 +243,8 @@ individual DiffEvol::search(){
 }
 
 
-void DiffEvol::evaluate(){
-
+void DiffEvol::evaluate(unsigned int seed){
+    this->gen.seed(seed);
     individual best = search();
 
     std::cout << "Population size: " << this->pop_size << std::endl;

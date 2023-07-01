@@ -6,19 +6,25 @@
 #include <random>
 
 int main(){
-    srand(SEED);
+    unsigned int seed = 30;
+    srand(seed);
 
     std::ifstream file;
-    std::string instance = FALKENAUER_U;
+    std::string instance = FALKENAUER_T "/Falkenauer_t60_00.txt";
 
     std::vector<int> weights;
+    
+    file.open(instance, std::ios::in);
 
-    file.open(instance+"/Falkenauer_u120_01.txt", std::ios::in);
+    if(!file.is_open()){
+        std::cout << "Error opening file" << std::endl;
+        return 1;
+    }
     
     auto [num_itens, capacity] = readInstance(file,weights); 
     
     int problem_dimension = num_itens;
-    int population_size = 10 * problem_dimension;
+    int population_size = 15 * problem_dimension;
     int epochs = 6000;
     double wf = 0.8;
     double cr = 0.9;
@@ -27,8 +33,8 @@ int main(){
 
     DiffEvol de(population_size, problem_dimension, epochs, lb, ub, wf, cr, weights, capacity, num_itens);
 
-
-    de.evaluate();
+    
+    de.evaluate(seed);
 
     std::cout << num_itens << " " << capacity << std::endl;
 
