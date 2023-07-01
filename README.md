@@ -9,7 +9,6 @@ A disciplina consiste na realização de trabalhos envolvendo o uso de metaheur�
 | [**2. Resolver problemas de otimização em espaço de busca contínuo**](#resolver-problemas-de-otimização-em-espaço-de-busca-contínuo) 	| [Trabalho 2](trabalho-2/)                  	|
 | [**3. Resolver Problemas de Otimização Combinatória**](#resolver-problemas-de-otimização-combinatória)                	| [Trabalho 3](trabalho-3/)                   	|
 | [**4. Bin Packing Problem com Evolução Diferencial**](#bin-packing-problem-com-evolução-diferencial)                                                                     	| [Trabalho-4](trabalho-4/)                  	| 
-|                                                                     	|                   	|
 
 ### Resolver problemas de otimização em espaço de busca contínuo
 Consistiu na solução de problemas envolvedo as funções de benchmark da competição CEC2017, usando n = 10, 2 dimensões e um orçamento computacional de 10000*n;
