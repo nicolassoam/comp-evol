@@ -34,4 +34,4 @@
 
 build/
 .vscode/
-include/config.h
+/include/config.h
