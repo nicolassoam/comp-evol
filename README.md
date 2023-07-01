@@ -8,7 +8,7 @@ A disciplina consiste na realização de trabalhos envolvendo o uso de metaheur�
 |:-------------------------------------------------------------------:	|:-----------------:	|
 | [**2. Resolver problemas de otimização em espaço de busca contínuo**](#resolver-problemas-de-otimização-em-espaço-de-busca-contínuo) 	| [Trabalho 2](trabalho-2/)                  	|
 | [**3. Resolver Problemas de Otimização Combinatória**](#resolver-problemas-de-otimização-combinatória)                	| [Trabalho 3](trabalho-3/)                   	|
-|                                                                     	|                   	|
+| [**4. Bin Packing Problem com Evolução Diferencial](#bin-packing-problem-com-evolução-diferencial)                                                                     	|                   	| [Trabalho-4](trabalho-4/)
 |                                                                     	|                   	|
 
 ### Resolver problemas de otimização em espaço de busca contínuo
@@ -16,3 +16,7 @@ Consistiu na solução de problemas envolvedo as funções de benchmark da compe
 
 ### Resolver Problemas de Otimização Combinatória
 Consistiu na solução de problemas do tipo TSP (Travelling Salesman Problem) assíncrono e síncrono, com limite de cálculo de função objetivo de 20000 para instâncias menores e de 70000 para instâncias maiores.
+
+### Bin Packing Problem com Evolução Diferencial
+Para o trabalho 4, era necessário definirmos um problema tratado na literatura e uma meta-heurística para resolvê-lo. 
+Escolhemos o Problema de Empacotamento – o Bin Packing Problem – e utilizamos como meta-heurística uma Evolução Diferencial, adaptada para o espaço discreto do problema.
