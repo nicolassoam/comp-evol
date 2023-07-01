@@ -6,11 +6,11 @@
 #include <random>
 
 int main(){
-    unsigned int seed = 30;
+    unsigned int seed = 9000;
     srand(seed);
 
     std::ifstream file;
-    std::string instance = FALKENAUER_T "/Falkenauer_t60_00.txt";
+    std::string instance = WAESCHER "/Waescher_TEST0014.txt";
 
     std::vector<int> weights;
     
@@ -20,11 +20,11 @@ int main(){
         std::cout << "Error opening file" << std::endl;
         return 1;
     }
-    
+    //intellisense pode acusar erro mas esse código funciona!
     auto [num_itens, capacity] = readInstance(file,weights); 
     
     int problem_dimension = num_itens;
-    int population_size = 15 * problem_dimension;
+    int population_size = 10 * problem_dimension;
     int epochs = 6000;
     double wf = 0.8;
     double cr = 0.9;

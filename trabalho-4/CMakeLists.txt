@@ -9,6 +9,7 @@ set(PROJECT_DIR "${PROJECT_SOURCE_DIR}/")
 set(INSTANCES "${PROJECT_SOURCE_DIR}/instances")
 set(FALKENAUER_U "${PROJECT_SOURCE_DIR}/instances/Falkenauer/Falkenauer_U")
 set(FALKENAUER_T "${PROJECT_SOURCE_DIR}/instances/Falkenauer/Falkenauer_T")
+set(WAESCHER "${PROJECT_SOURCE_DIR}/instances/Waescher/")
 
 
 

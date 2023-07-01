@@ -34,6 +34,10 @@ typedef std::vector<int> weights;
 
 typedef std::vector<individual> pop_mat;
 
+
+/*
+    Class for Differential Evolution
+*/
 class DiffEvol {
     private:
         std::mt19937 gen;
@@ -132,7 +136,7 @@ void DiffEvol::select_parents(int current, int&p1, int&p2, int&p3){
 pop_mat DiffEvol::create_children(pop_mat &pop, int wf, int cr){
     
     pop_mat children;
-    
+  
     for(int i = 0;i < pop.size(); i++){
         int p1, p2, p3;
         select_parents(i, p1, p2, p3);
@@ -146,7 +150,6 @@ pop_mat DiffEvol::create_children(pop_mat &pop, int wf, int cr){
 
 pop_mat DiffEvol::select_population(pop_mat children, pop_mat parents){
     pop_mat new_population;
-    //push_back isn't thread safe, thus we use a lock
     
     for(int i = 0; i < children.size(); i++){
         new_population.push_back(children[i].fitness <= parents[i].fitness ? children[i] : parents[i]);
@@ -181,7 +184,7 @@ double DiffEvol::objective_function(double_vec& cromo){
 
     std::unordered_set<double> unique_values;
     int penalty = 0;
-    
+ 
     for(double value : cromo){
         if(unique_values.count(value) == 0){
             unique_values.insert(value);
@@ -231,12 +234,11 @@ individual DiffEvol::search(){
        std::sort(this->population.begin(), this->population.end(), [](const individual& a, const individual& b) { return a.fitness < b.fitness; });
 
     //    this->population.erase(this->population.begin() + pop_size, this->population.end());
-
        if(this->population[0].fitness < best.fitness){
               best = this->population[0];
        }
-
-       std::cout << " > gen " << gen+1 << ", fitness=" << best.fitness << std::endl;
+      
+       std::cout << " > gen " << gen+1 << ", fitness = " << best.fitness << std::endl;
    }
 
     return best;
