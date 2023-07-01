@@ -268,19 +268,12 @@ void DiffEvol::evaluate(unsigned int seed){
     std::cout << "Max iteration: " << this->max_iter << std::endl;
     std::cout << "Best solution: " << std::endl;
     std::cout << "[" ;
-
-    // std::unordered_set<double> s;
-    // unsigned size = best.cromo.size();
-    // for( unsigned i = 0; i < size; ++i ) s.insert( best.cromo[i] );
-    // best.cromo.assign( s.begin(), s.end() );
-
-
+    
     for(double i : best.cromo)
         std::cout << i << ", ";
 
     std::cout << "]" << std::endl;
 
-    std::cout << "Best fitness: " << best.fitness << std::endl;
-
+    std::cout << "Best fitness: " << best.fitness << std::endl;   
 }
 #endif

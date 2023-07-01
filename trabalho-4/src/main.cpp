@@ -5,12 +5,13 @@
 #include <fstream>
 #include <random>
 
-int main(){
-    unsigned int seed = 9000;
+int main(int argc, char** argv){
+    unsigned int seed = argv[1] ? atoi(argv[1]) : 122;
+    
     srand(seed);
 
     std::ifstream file;
-    std::string instance = WAESCHER "/Waescher_TEST0014.txt";
+    std::string instance = FALKENAUER_T "/Falkenauer_t501_00.txt";
 
     std::vector<int> weights;
     
@@ -24,7 +25,7 @@ int main(){
     auto [num_itens, capacity] = readInstance(file,weights); 
     
     int problem_dimension = num_itens;
-    int population_size = 10 * problem_dimension;
+    int population_size =600;
     int epochs = 6000;
     double wf = 0.8;
     double cr = 0.9;
@@ -37,7 +38,7 @@ int main(){
     de.evaluate(seed);
 
     std::cout << num_itens << " " << capacity << std::endl;
-
+    std::cout << "seed: " << seed << std::endl; 
     // for(int i : weights)
     //     std::cout << i << " ";
 
