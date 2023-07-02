@@ -3,6 +3,7 @@
 
 #cmakedefine PROJECT_DIR "@PROJECT_DIR@"
 #cmakedefine INSTANCES "@INSTANCES@"
+#cmakedefine OUTPUT_DIR "@OUTPUT_DIR@"
 
 #cmakedefine FALKENAUER_U "@FALKENAUER_U@"
 #cmakedefine FALKENAUER_T "@FALKENAUER_T@" 

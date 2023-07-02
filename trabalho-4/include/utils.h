@@ -21,6 +21,11 @@ std::pair<int,int> readInstance(std::ifstream &file, std::vector<int> &weights){
         weights.push_back(weight);
         
     }
+
+
+    file.close();
+
+
     return {num_items, capacity};
 }
 

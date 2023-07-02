@@ -7,6 +7,8 @@
 #include <numeric>
 #include <iomanip>
 #include <queue>
+#include "config.h"
+#include <fstream>
 #include <unordered_set>
 #include <list>
 #include <iostream>
@@ -62,7 +64,7 @@ class DiffEvol {
         double objective_function(double_vec &cromo);
     public:
         DiffEvol(long pop_size, long problem_dim, int max_iter, double_vec lb, double_vec ub, double wf, double cr, weights w, int capacity, int n_itens);
-        void evaluate(unsigned int seed);
+        void evaluate(unsigned int seed, std::string file_name = " ");
         double_vec get_best();
         double_vec get_best_fitness();
         pop_mat get_population();
@@ -245,35 +247,64 @@ individual DiffEvol::search(){
 }
 
 
-void DiffEvol::evaluate(unsigned int seed){
+void DiffEvol::evaluate(unsigned int seed, std::string file_name){
     this->gen.seed(seed);
     individual best = search();
 
-    std::cout << "Population size: " << this->pop_size << std::endl;
-    std::cout << "Problem dimension: " << this->problem_dim << std::endl;
-    std::cout << "Lower bound: " << std::endl;
+    std::ofstream file;
+    file.open(OUTPUT_DIR+ file_name + "_results.txt", std::ios::app);
+
+    file << "Population size: " << this->pop_size << std::endl;
+    file << "Problem dimension: " << this->problem_dim << std::endl;
+    file << "Lower bound: " << std::endl;
 
     for(double i : this->lb)
-        std::cout << i << " ";
+        file << i << " ";
 
-    std::cout << std::endl;
-    std::cout << "Upper bound: " << std::endl;
+    file << std::endl;
+    file << "Upper bound: " << std::endl;
 
     for(double i : this->ub)
-        std::cout << i << " ";
+        file << i << " ";
 
-    std::cout << std::endl;
-    std::cout << "Weight factor: " << this->wf << std::endl;
-    std::cout << "Crossover rate: " << this->cr << std::endl;
-    std::cout << "Max iteration: " << this->max_iter << std::endl;
-    std::cout << "Best solution: " << std::endl;
-    std::cout << "[" ;
+    file << std::endl;
+    file << "Weight factor: " << this->wf << std::endl;
+    file << "Crossover rate: " << this->cr << std::endl;
+    file << "Max iteration: " << this->max_iter << std::endl;
+    file << "Best solution: " << std::endl;
+    file << "[" ;
     
     for(double i : best.cromo)
-        std::cout << i << ", ";
+        file << i << ", ";
 
-    std::cout << "]" << std::endl;
+    file << "]" << std::endl;
 
-    std::cout << "Best fitness: " << best.fitness << std::endl;   
+    file << "Best fitness: " << best.fitness << std::endl;
+
+    file << "SEED: " << seed << std::endl << std::endl;
+
+    file << "Solution Bins: " << std::endl;
+    
+    std::vector<double> bins;
+    int aux_weight = 0;
+
+    for(auto i : best.cromo){
+        if(aux_weight + this->w[i] <= this->capacity){
+            aux_weight += this->w[i];
+        }else{
+            bins.push_back(aux_weight);
+            aux_weight = 0;
+        }
+    }
+
+    for(auto i : bins){
+        file << i << " ";
+    }
+
+    file << std::endl <<"----------------------------------------" << std::endl << std::endl;
+
+    file.close();
+
+    return;   
 }
 #endif
