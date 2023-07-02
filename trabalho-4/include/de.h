@@ -296,7 +296,7 @@ void DiffEvol::evaluate(unsigned int seed, std::string file_name){
             aux_weight = 0;
         }
     }
-
+    file << "Bin Number: " << bins.size() << std::endl;
     for(auto i : bins){
         file << i << " ";
     }
