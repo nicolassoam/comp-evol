@@ -30,6 +30,7 @@ configure_file(${PROJECT_SOURCE_DIR}/include/config.h.in ${PROJECT_SOURCE_DIR}/i
 
 add_executable(main ${SOURCES})
 find_package(OpenMP)
-target_link_libraries(main PRIVATE OpenMP::OpenMP_CXX)
 
-add_compile_options(-std=c++20 -Ofast -fPIC -march=native -fopenmp)
+# target_link_libraries(main PRIVATE OpenMP::OpenMP_CXX)
+
+add_compile_options(-std=c++20 -Ofast -fPIC -march=native -fopenmp -I C:/msys64/mingw64/include/*)
