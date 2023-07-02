@@ -7,11 +7,24 @@ add_library(library ${SOURCES})
 
 set(PROJECT_DIR "${PROJECT_SOURCE_DIR}/")
 set(INSTANCES "${PROJECT_SOURCE_DIR}/instances")
-set(FALKENAUER_U "${PROJECT_SOURCE_DIR}/instances/Falkenauer/Falkenauer_U")
-set(FALKENAUER_T "${PROJECT_SOURCE_DIR}/instances/Falkenauer/Falkenauer_T")
-set(WAESCHER "${PROJECT_SOURCE_DIR}/instances/Waescher/")
-set(SCHOLL "${PROJECT_SOURCE_DIR}/instances/Scholl/")
+
+set(FALKENAUER_U "${INSTANCES}/Falkenauer/Falkenauer_U")
+set(FALKENAUER_T "${INSTANCES}/Falkenauer/Falkenauer_T")
+
+set(WAESCHER "${INSTANCES}/instances/Waescher/")
+
+set(SCHOLL "${INSTANCES}/instances/Scholl/")
+set(SCHOLL_1 "${SCHOLL}/Scholl_1")
+set(SCHOLL_2 "${SCHOLL}/Scholl_2")
+set(SCHOLL_3 "${SCHOLL}/Scholl_3")
+
+set(AI "${INSTANCES}/Difficult_Instances/AI")
+
+set(ANI "${INSTANCES}/Difficult_Instances/ANI")
+
 set(OUTPUT_DIR "${PROJECT_SOURCE_DIR}/output/")
+
+option(CPU_TIME  "Enable cputime build" ON)
 
 configure_file(${PROJECT_SOURCE_DIR}/include/config.h.in ${PROJECT_SOURCE_DIR}/include/config.h)
 

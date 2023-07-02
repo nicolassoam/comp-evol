@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <queue>
 #include "config.h"
+#include "utils.h"
 #include <fstream>
 #include <unordered_set>
 #include <list>
@@ -249,7 +250,12 @@ individual DiffEvol::search(){
 
 void DiffEvol::evaluate(unsigned int seed, std::string file_name){
     this->gen.seed(seed);
+
+    auto start = Clock::now();
+
     individual best = search();
+
+    auto end = Clock::now();
 
     std::ofstream file;
     file.open(OUTPUT_DIR+ file_name + "_results.txt", std::ios::app);
@@ -300,6 +306,8 @@ void DiffEvol::evaluate(unsigned int seed, std::string file_name){
     for(auto i : bins){
         file << i << " ";
     }
+
+    file << std::endl << "Elapsed time: " << std::chrono::duration_cast<std::chrono::seconds>(end - start).count() << " s";
 
     file << std::endl <<"----------------------------------------" << std::endl << std::endl;
 

@@ -13,7 +13,11 @@ Best fitness: 0.965358
 SEED: 23
 
 Solution Bins: 
-939 935 984 995 900 995 895 938 979 973 997 1000 989 995 986
+Bin Number: 15
+939 935 984 995 900 995 895 938 979 973 997 1000 989 995 986 
+Elapsed time: 42 s
+
+
 ----------------------------------------
 
 Population size: 600
@@ -31,7 +35,11 @@ Best fitness: 0.985694
 SEED: 560
 
 Solution Bins: 
+Bin Number: 15
 991 980 961 999 823 979 971 997 960 991 990 934 999 981 928 
+Elapsed time: 42 s
+
+
 ----------------------------------------
 
 Population size: 600
@@ -49,7 +57,11 @@ Best fitness: 0.800208
 SEED: 800
 
 Solution Bins: 
- Bin: 992  Bin: 989  Bin: 962  Bin: 985  Bin: 920  Bin: 968  Bin: 943  Bin: 984  Bin: 988  Bin: 981  Bin: 925  Bin: 985  Bin: 995  Bin: 998  Bin: 975 
+Bin Number: 15
+992 989 962 985 920 968 943 984 988 981 925 985 995 998 975 
+Elapsed time: 42 s
+
+
 ----------------------------------------
 
 Population size: 600
@@ -69,5 +81,8 @@ SEED: 326
 Solution Bins: 
 Bin Number: 15
 988 999 984 969 981 996 990 911 917 985 988 957 965 977 986 
+Elapsed time: 42 s
+
+
 ----------------------------------------
 

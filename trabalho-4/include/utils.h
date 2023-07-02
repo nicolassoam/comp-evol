@@ -6,6 +6,8 @@
 #include <fstream>
 #include <utility>
 #include <string>
+#include "config.h"
+#include <chrono>
 #include <vector>
 
 std::pair<int,int> readInstance(std::ifstream &file, std::vector<int> &weights){
@@ -28,5 +30,7 @@ std::pair<int,int> readInstance(std::ifstream &file, std::vector<int> &weights){
 
     return {num_items, capacity};
 }
+
+typedef std::chrono::high_resolution_clock Clock;
 
 #endif

@@ -11,6 +11,13 @@
 #cmakedefine WAESCHER "@WAESCHER@"
 
 #cmakedefine SCHOLL "@SCHOLL@"
+#cmakedefine SCHOLL_1 "@SCHOLL_1@"
+#cmakedefine SCHOLL_2 "@SCHOLL_2@"
+#cmakedefine SCHOLL_3 "@SCHOLL_3@"
+
+#cmakedefine AI "@AI@"
+#cmakedefine ANI "@ANI@"
+
 
 
 #endif
