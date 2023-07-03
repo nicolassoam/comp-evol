@@ -14,9 +14,9 @@ set(FALKENAUER_T "${INSTANCES}/Falkenauer/Falkenauer_T")
 set(WAESCHER "${INSTANCES}/instances/Waescher/")
 
 set(SCHOLL "${INSTANCES}/instances/Scholl/")
-set(SCHOLL_1 "${SCHOLL}/Scholl_1")
-set(SCHOLL_2 "${SCHOLL}/Scholl_2")
-set(SCHOLL_3 "${SCHOLL}/Scholl_3")
+set(SCHOLL_1 "${SCHOLL}Scholl_1")
+set(SCHOLL_2 "${SCHOLL}Scholl_2")
+set(SCHOLL_3 "${SCHOLL}Scholl_3")
 
 set(AI "${INSTANCES}/Difficult_Instances/AI")
 
