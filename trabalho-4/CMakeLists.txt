@@ -29,8 +29,8 @@ option(CPU_TIME  "Enable cputime build" ON)
 configure_file(${PROJECT_SOURCE_DIR}/include/config.h.in ${PROJECT_SOURCE_DIR}/include/config.h)
 
 add_executable(main ${SOURCES})
-# find_package(OpenMP)
+find_package(OpenMP)
 
-# target_link_libraries(main PRIVATE OpenMP::OpenMP_CXX)
+target_link_libraries(main PRIVATE OpenMP::OpenMP_CXX)
 
-add_compile_options(-std=c++20 -Ofast -fPIC -march=native -fopenmp -I C:/msys64/mingw64/include/*)
+add_compile_options(-std=c++20 -Ofast -fPIC -march=native -fopenmp)
