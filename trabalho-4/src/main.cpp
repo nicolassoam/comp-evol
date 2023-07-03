@@ -11,8 +11,8 @@ int main(int argc, char** argv){
     srand(seed);
 
     std::ifstream file;
-    std::string instance = "Falkenauer_t501_00";
-    std::string instance_file = FALKENAUER_T "/" + instance + ".txt";
+    std::string instance = "Falkenauer_u250_03";
+    std::string instance_file = FALKENAUER_U "/" + instance + ".txt";
 
     std::vector<int> weights;
     
