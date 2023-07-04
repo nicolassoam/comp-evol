@@ -30,11 +30,6 @@ configure_file(${PROJECT_SOURCE_DIR}/include/config.h.in ${PROJECT_SOURCE_DIR}/i
 
 add_executable(main ${SOURCES})
 
-# set(OPENMP_LIBRARIES "/usr/local/Cellar/llvm/5.0.1/lib")
-# set(OPENMP_INCLUDES "/usr/local/Cellar/llvm/5.0.1/include")
-
-# set(OPENMP_LIBRARIES "/usr/local/opt/llvm/lib")
-# link_directories(${OPENMP_LIBRARIES})
 
 find_package(OpenMP)
 
