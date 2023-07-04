@@ -11,7 +11,7 @@ int main(int argc, char** argv){
     srand(seed);
 
     std::ifstream file;
-    std::string instance = "201_2500_NR_0";
+    std::string instance = "801_40000_NR_0";
     std::string instance_file = ANI "/" + instance + ".txt";
 
     std::vector<int> weights;
@@ -23,8 +23,9 @@ int main(int argc, char** argv){
         return 1;
     }
     //intellisense pode acusar erro mas esse código funciona!
-    auto [num_itens, capacity] = readInstance(file,weights); 
-    
+    // auto [num_itens, capacity] = readInstance(file,weights); 
+    int num_itens = readAugmented(file,weights);
+    int capacity = 40000;
     int problem_dimension = num_itens;
     int population_size = 600;
     int epochs = 6000;
