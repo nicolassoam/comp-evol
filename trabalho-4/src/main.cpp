@@ -23,9 +23,9 @@ int main(int argc, char** argv){
         return 1;
     }
     //intellisense pode acusar erro mas esse código funciona!
-    // auto [num_itens, capacity] = readInstance(file,weights); 
-    int num_itens = readAugmented(file,weights);
-    int capacity = 40000;
+    auto [num_itens, capacity] = readInstance(file,weights); 
+    // int num_itens = readAugmented(file,weights);
+    // int capacity = 40000;
     int problem_dimension = num_itens;
     int population_size = 600;
     int epochs = 6000;
