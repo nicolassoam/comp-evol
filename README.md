@@ -17,5 +17,5 @@ Consistiu na solução de problemas envolvedo as funções de benchmark da compe
 Consistiu na solução de problemas do tipo TSP (Travelling Salesman Problem) assíncrono e síncrono, com limite de cálculo de função objetivo de 20000 para instâncias menores e de 70000 para instâncias maiores.
 
 ### Bin Packing Problem com Evolução Diferencial
-Para o trabalho 4, era necessário definirmos um problema tratado na literatura e uma meta-heurística para resolvê-lo. 
+Para o trabalho 4, definimos um problema tratado na literatura e uma meta-heurística para resolvê-lo. 
 Escolhemos o Problema de Empacotamento – o Bin Packing Problem – e utilizamos como meta-heurística uma Evolução Diferencial, adaptada para o espaço discreto do problema.
