@@ -41,8 +41,6 @@ int main(int argc, char** argv){
 
     std::cout << num_itens << " " << capacity << std::endl;
     std::cout << "seed: " << seed << std::endl; 
-    // for(int i : weights)
-    //     std::cout << i << " ";
 
     return 0;
 }

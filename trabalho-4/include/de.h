@@ -99,10 +99,6 @@ void DiffEvol::init_population(){
     
     for (int i = 0; i < pop_size; i++){
         individual temp;
-        
-        // for (int j = 0; j < problem_dim; j++){
-        //     temp.cromo.push_back(lb[j] + (ub[j] - lb[j]) * dis(gen));
-        // }
 
         std::vector <int> itens(this->n_itens);
         std::iota(itens.begin(), itens.end(), 0);
@@ -164,7 +160,6 @@ pop_mat DiffEvol::select_population(pop_mat children, pop_mat parents){
 double_vec DiffEvol::de_rand_1_bin(double_vec pop, double_vec parent1, double_vec parent2, double_vec parent3, int wf, int cr){
    
    double_vec sample(pop.size());
-//    std::uniform_int_distribution<int> dis(0, pop_size - 1);
 
    int cut = gen() % (pop.size() - 1) + 1;
 
@@ -236,7 +231,6 @@ individual DiffEvol::search(){
 
        std::sort(this->population.begin(), this->population.end(), [](const individual& a, const individual& b) { return a.fitness < b.fitness; });
 
-    //    this->population.erase(this->population.begin() + pop_size, this->population.end());
        if(this->population[0].fitness < best.fitness){
               best = this->population[0];
        }
